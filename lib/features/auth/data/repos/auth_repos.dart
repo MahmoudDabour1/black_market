@@ -4,6 +4,8 @@ import 'package:black_market/features/auth/data/models/login_request_model.dart'
 import 'package:black_market/features/auth/data/models/login_response_model.dart';
 import 'package:black_market/features/auth/data/models/register_request_model.dart';
 import 'package:black_market/features/auth/data/models/register_response_model.dart';
+import 'package:black_market/features/auth/data/models/update_password_request_model.dart';
+import 'package:black_market/features/auth/data/models/update_password_response_model.dart';
 
 import '../../../../core/networking/api_error_handler.dart';
 
@@ -13,6 +15,9 @@ abstract class AuthRepos {
 
   Future<ApiResult<RegisterResponseModel>> register(
       RegisterRequestModel registerRequestModel);
+
+  Future<ApiResult<String>> forgetPassword(Map<String, dynamic> body);
+  Future<ApiResult<UpdatePasswordResponseModel>> updateForgetPassword(UpdatePasswordRequestModel updatePasswordRequestModel);
 }
 
 class AuthReposImpl implements AuthRepos {
@@ -35,6 +40,26 @@ class AuthReposImpl implements AuthRepos {
   Future<ApiResult<RegisterResponseModel>> register(RegisterRequestModel registerRequestModel)async {
     try {
       final response = await authRemoteDataSource.register(registerRequestModel);
+      return ApiResult.success(response);
+    } catch (e) {
+      return ApiResult.failure(ApiErrorHandler.handle(e.toString()));
+    }
+  }
+
+  @override
+  Future<ApiResult<String>> forgetPassword(Map<String, dynamic> body)async {
+    try {
+      final response = await authRemoteDataSource.forgetPassword(body);
+      return ApiResult.success(response);
+    } catch (e) {
+      return ApiResult.failure(ApiErrorHandler.handle(e.toString()));
+    }
+  }
+
+  @override
+  Future<ApiResult<UpdatePasswordResponseModel>> updateForgetPassword(UpdatePasswordRequestModel updatePasswordRequestModel) async{
+    try {
+      final response = await authRemoteDataSource.updateForgetPassword(updatePasswordRequestModel);
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(ApiErrorHandler.handle(e.toString()));
