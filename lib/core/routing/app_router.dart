@@ -1,4 +1,5 @@
 import 'package:black_market/core/routing/routes.dart';
+import 'package:black_market/features/auth/presentation/forget_password/new_password_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/auth/presentation/forget_password/forget_password_screen.dart';
@@ -32,6 +33,24 @@ class AppRouter {
           ),
           settings: settings,
         );
+
+      case Routes.newPasswordScreen:
+        final args = settings.arguments as Map<String, dynamic>;
+        final email = args['email'] as String;
+        final otp = args['otp'] as String;
+        return MaterialPageRoute(
+          builder: (_) => NewPasswordScreen(
+            email: email,
+            code: otp,
+          ),
+          settings: settings,
+        );
+      // case Routes.changePasswordDoneScreen:
+      //   return MaterialPageRoute(
+      //     builder: (_) => OtpScreen(
+      //     ),
+      //     settings: settings,
+      //   );
     }
     return null;
   }

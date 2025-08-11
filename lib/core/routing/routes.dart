@@ -3,6 +3,8 @@ abstract class Routes{
   static const String registerScreen = '/RegisterScreen';
   static const String forgetPasswordScreen = '/ForgetPasswordScreen';
   static const String otpScreen = '/OtpScreen';
+  static const String newPasswordScreen = '/NewPasswordScreen';
+  static const String changePasswordDoneScreen = '/ChangePasswordDoneScreen';
 
 
 }

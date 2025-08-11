@@ -3,6 +3,7 @@ class ApiConstants {
   static const String loginEp = "login";
   static const String registerEp = "register";
   static const String forgetPasswordEp = "forget_password";
+  static const String updateForgetPasswordEP = "update_forgotten_password";
 }
 
 class ApiErrors {

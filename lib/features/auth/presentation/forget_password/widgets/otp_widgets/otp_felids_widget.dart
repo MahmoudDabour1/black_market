@@ -1,10 +1,13 @@
+import 'package:black_market/core/extensions/navigation_extension.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../../core/routing/routes.dart';
 import '../../../../../../core/theming/app_colors.dart';
 import '../../../../../../core/theming/app_styles.dart';
 
 class OtpFelidsWidget extends StatefulWidget {
-  const OtpFelidsWidget({super.key});
+  final String email;
+  const OtpFelidsWidget({super.key,required this.email});
 
   @override
   State<OtpFelidsWidget> createState() => _OtpFelidsWidgetState();
@@ -25,16 +28,20 @@ class _OtpFelidsWidgetState extends State<OtpFelidsWidget> {
     }
     super.dispose();
   }
+
   void _checkIfAllFilled() {
     bool allFilled = _controllers.every((c) => c.text.isNotEmpty);
     if (allFilled) {
       String otp = _controllers.map((c) => c.text).join();
       debugPrint("OTP Entered: $otp");
+      context.pushNamed(Routes.newPasswordScreen,arguments: {
+        'email': widget.email,
+        'otp': otp,
+      },);
 
 
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return  Row(
@@ -60,11 +67,16 @@ class _OtpFelidsWidgetState extends State<OtpFelidsWidget> {
                 ),
               ),
               onChanged: (value) {
-                if (value.isNotEmpty && index < 4) {
-                  _focusNodes[index - 1].requestFocus();
-                } else if (value.isEmpty && index > -1) {
-                  _focusNodes[index + 1].requestFocus();
+                if (value.isNotEmpty && index < _controllers.length - 1) {
+                  _focusNodes[index + 1].requestFocus(); // move right
+                } else if (value.isEmpty && index > 0) {
+                  _focusNodes[index - 1].requestFocus(); // move left
                 }
+                // if (value.isNotEmpty && index < 4) {
+                //   _focusNodes[index - 1].requestFocus();
+                // } else if (value.isEmpty && index > 0) {
+                //   _focusNodes[index + 1].requestFocus();
+                // }
                 _checkIfAllFilled();
               },
             ));

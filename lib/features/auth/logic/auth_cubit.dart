@@ -1,6 +1,7 @@
 import 'package:black_market/core/extensions/navigation_extension.dart';
 import 'package:black_market/core/routing/routes.dart';
 import 'package:black_market/features/auth/data/models/login_request_model.dart';
+import 'package:black_market/features/auth/data/models/update_password_request_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 
@@ -83,6 +84,23 @@ class AuthCubit extends Cubit<AuthState> {
       );
     }, failure: (error) {
       emit(AuthState.forgetPasswordError(error.toString()));
+      showToast(message: error.toString(), isError: true);
+    });
+  }
+
+  Future<void> updatePassword(String otp) async {
+    emit(AuthState.updatePasswordLoading());
+    final response = await authRepos.updateForgetPassword(
+        UpdatePasswordRequestModel(
+            password: passwordController.text,
+            password_confirmation: confirmPasswordController.text,
+            otp: otp,
+            email: emailController.text));
+    response.when(success: (data) {
+      emit(AuthState.updatePasswordSuccess(data));
+      showToast(message: "Password updated successfully", isError: false);
+    }, failure: (error) {
+      emit(AuthState.updatePasswordError(error.toString()));
       showToast(message: error.toString(), isError: true);
     });
   }

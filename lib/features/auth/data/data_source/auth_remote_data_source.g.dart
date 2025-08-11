@@ -126,6 +126,41 @@ class _AuthRemoteDataSource implements AuthRemoteDataSource {
     return _value;
   }
 
+  @override
+  Future<UpdatePasswordResponseModel> updateForgetPassword(
+      UpdatePasswordRequestModel updatePasswordRequestModel) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(updatePasswordRequestModel.toJson());
+    final _options = _setStreamType<UpdatePasswordResponseModel>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          'update_forgotten_password',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late UpdatePasswordResponseModel _value;
+    try {
+      _value = UpdatePasswordResponseModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
     if (T != dynamic &&
         !(requestOptions.responseType == ResponseType.bytes ||
