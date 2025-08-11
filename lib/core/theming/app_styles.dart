@@ -19,20 +19,24 @@ class AppStyles {
     fontSize: 16.sp,
     color: AppColors.grayColor,
     fontWeight: FontWeightHelper.light,
-  );static TextStyle font14BlackLight = TextStyle(
+  );static TextStyle font14WhiteMedium = TextStyle(
     fontSize: 14.sp,
-    color: AppColors.blackColor,
+    color: AppColors.whiteColor,
+    fontWeight: FontWeightHelper.medium,
+  );static TextStyle font14WhiteLight = TextStyle(
+    fontSize: 14.sp,
+    color: AppColors.whiteColor,
     fontWeight: FontWeightHelper.light,
   );
-  static TextStyle font18BlackBold = TextStyle(
-    fontSize: 18.sp,
-    color: AppColors.blackColor,
+  static TextStyle font24WhiteBold = TextStyle(
+    fontSize: 24.sp,
+    color: AppColors.whiteColor,
     fontWeight: FontWeightHelper.bold,
   );
-  static TextStyle font18BlackMedium = TextStyle(
+  static TextStyle font18WhiteSemiBold = TextStyle(
     fontSize: 18.sp,
-    color: AppColors.blackColor,
-    fontWeight: FontWeightHelper.medium,
+    color: AppColors.whiteColor,
+    fontWeight: FontWeightHelper.semiBold,
   );static TextStyle font18PrimaryMedium = TextStyle(
     fontSize: 18.sp,
     color: AppColors.primaryColor,

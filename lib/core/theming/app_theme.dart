@@ -4,8 +4,8 @@ import 'package:flutter/services.dart';
 import 'app_colors.dart';
 
 final ThemeData appTheme = ThemeData(
-  scaffoldBackgroundColor: AppColors.whiteColor,
-  brightness: Brightness.light,
+  scaffoldBackgroundColor: AppColors.blackColor,
+  brightness: Brightness.dark,
   primaryColor: AppColors.primaryColor,
   fontFamily: "MyFont",
   appBarTheme: AppBarTheme(

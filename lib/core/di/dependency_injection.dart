@@ -1,3 +1,6 @@
+import 'package:black_market/features/auth/data/data_source/auth_remote_data_source.dart';
+import 'package:black_market/features/auth/data/repos/auth_repos.dart';
+import 'package:black_market/features/auth/logic/auth_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -10,4 +13,12 @@ Future<void> setupGetIt() async {
   await Hive.initFlutter();
 
   Dio dio = DioFactory.getDio();
+
+
+//auth
+  sl.registerLazySingleton<AuthRemoteDataSource>(
+      () => AuthRemoteDataSource(dio));
+  sl.registerLazySingleton<AuthRepos>(
+      () => AuthReposImpl(authRemoteDataSource: sl()));
+  sl.registerFactory<AuthCubit>(() => AuthCubit(sl()));
 }

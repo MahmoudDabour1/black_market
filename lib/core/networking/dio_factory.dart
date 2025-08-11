@@ -30,7 +30,6 @@ class DioFactory {
 
     dio?.options.headers = {
       'Accept': 'application/json',
-      'x-secret-key': "2KwG1hilCWiCLyEX4bwhdZJBmtjvIpqNGwn",
       'Content-Type': 'application/json',
       if (token != null && token.isNotEmpty) 'Authorization': 'Bearer $token',
     };
@@ -39,7 +38,6 @@ class DioFactory {
   static void setTokenIntoHeaderAfterLogin(String token) {
     dio?.options.headers = {
       'Authorization': 'Bearer $token',
-      'x-secret-key': "2KwG1hilCWiCLyEX4bwhdZJBmtjvIpqNGwn",
     };
   }
 
