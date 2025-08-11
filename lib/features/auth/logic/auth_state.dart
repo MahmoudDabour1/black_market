@@ -11,4 +11,10 @@ class AuthState<T> with _$AuthState<T> {
   const factory AuthState.loginSuccess(T data) = LoginSuccess;
 
   const factory AuthState.loginError(String message) = LoginError;
+
+  const factory AuthState.registerLoading() = RegisterLoading;
+
+  const factory AuthState.registerSuccess(T data) = RegisterSuccess;
+
+  const factory AuthState.registerError(String message) = RegisterError;
 }

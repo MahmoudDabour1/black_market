@@ -1,8 +1,7 @@
 class ApiConstants {
   static const String apiBaseUrl = "https://xyzys.space/api/";
-  static const String loginEp =
-      "login";
-
+  static const String loginEp = "login";
+  static const String registerEp = "register";
 }
 
 class ApiErrors {

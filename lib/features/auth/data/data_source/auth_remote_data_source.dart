@@ -1,4 +1,6 @@
 import 'package:black_market/features/auth/data/models/login_response_model.dart';
+import 'package:black_market/features/auth/data/models/register_request_model.dart';
+import 'package:black_market/features/auth/data/models/register_response_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -13,5 +15,10 @@ abstract class AuthRemoteDataSource {
   @POST(ApiConstants.loginEp)
   Future<LoginResponseModel> login(
     @Body() LoginRequestModel loginRequestModel,
+  );
+
+  @POST(ApiConstants.registerEp)
+  Future<RegisterResponseModel> register(
+    @Body() RegisterRequestModel registerRequestModel,
   );
 }

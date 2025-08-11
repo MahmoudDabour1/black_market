@@ -1,62 +1,72 @@
 abstract class Validator {
   static String? nameValidator(value) {
     if (value!.isEmpty) {
-      return '* name is required';
+      return '* الاسم مطلوب';
     } else if (value.length < 3) {
-      return '* name must be at least 3 digits';
+      return '* يجب أن يكون الاسم على الأقل 3 أحرف';
     }
     return null;
   }
 
   static String? phoneValidator(value) {
     if (value!.isEmpty) {
-      return '* phone is required';
+      return '* رقم الهاتف مطلوب';
     } else if (value.length != 11) {
-      return '* phone must be at least 11 digits';
+      return '* يجب أن يحتوي رقم الهاتف على 11 رقمًا';
     } else if (!value.startsWith("01")) {
-      return '* phone must be start with 01';
+      return '* يجب أن يبدأ رقم الهاتف بـ 01';
     }
     return null;
   }
 
   static String? emailValidator(value) {
     if (value!.isEmpty) {
-      return '* Email is required';
+      return '* البريد الإلكتروني مطلوب';
     }
+    // إذا أردت التأكد من نهاية الإيميل بـ @gmail.com أزل التعليق عن الأسطر التالية
     // else if (!value.endsWith("@gmail.com")) {
-    //   return '* Email must be end with @gmail.com';
+    //   return '* يجب أن ينتهي البريد الإلكتروني بـ @gmail.com';
     // }
     else if (value.length < 13) {
-      return '* Email must be at least 13 digits';
+      return '* يجب أن يكون البريد الإلكتروني على الأقل 13 حرفًا';
     }
     return null;
   }
 
   static String? passwordValidator(value) {
     if (value!.isEmpty) {
-      return '* Password is required';
+      return '* كلمة المرور مطلوبة';
     } else if (value.length < 7) {
-      return '* Password must be at least 7 char';
+      return '* يجب أن تكون كلمة المرور على الأقل 7 أحرف';
+    } else if (!RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{7,}$')
+        .hasMatch(value)) {
+      return '* يجب أن تحتوي كلمة المرور على حرف كبير وحرف صغير ورقم';
+    }
+    else if (value.contains(' ')) {
+      return '* كلمة المرور لا يمكن أن تحتوي على مسافات';
     }
     return null;
   }
 
   static String? otpValidator(value) {
     if (value!.isEmpty) {
-      return "*";
+      return '* رمز التحقق مطلوب';
     } else if (value.length != 1) {
-      return "please enter valid phone number";
-    } else {
-      return null;
+      return 'الرجاء إدخال رقم تحقق صحيح';
     }
+    return null;
   }
 
   static String? confirmPasswordValidator(value) {
-    if (value! != passwordValidator(value)) {
-      return '* Confirm password is Wrong';
-    } else if (value.length < 7) {
-      return '* Confirm password must be at least 7 char';
+    if (value!.isEmpty) {
+      return '* تأكيد كلمة المرور مطلوب';
+    }
+    // else if (value! != passwordValidator(value)) {
+    //   return '* كلمة المرور غير متطابقة';
+    // }
+    else if (value.length < 7) {
+      return '* يجب أن تكون كلمة المرور على الأقل 7 أحرف';
     }
     return null;
-    }
+  }
 }
