@@ -41,4 +41,6 @@ class AppString {
   static const returnPassword = "إسترجاع كلمة المرور";
   static const weSendCodeTo = "لقد قمنا بإرسال رمز التأكيد الى";
   static const enterCode = "قم بإدخال الكود المرسل";
+  static const didHaveCode = "لم تتلقى الرمز";
+  static const sendAgain = "إعادة الإرسال";
 }

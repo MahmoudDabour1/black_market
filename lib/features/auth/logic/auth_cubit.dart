@@ -1,3 +1,5 @@
+import 'package:black_market/core/extensions/navigation_extension.dart';
+import 'package:black_market/core/routing/routes.dart';
 import 'package:black_market/features/auth/data/models/login_request_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
@@ -63,7 +65,7 @@ class AuthCubit extends Cubit<AuthState> {
   }
 
   //forget password
-  Future<void> forgetPassword() async {
+  Future<void> forgetPassword(BuildContext context) async {
     emit(AuthState.forgetPasswordLoading());
     final requestBody = {
       "email": emailController.text,
@@ -75,6 +77,10 @@ class AuthCubit extends Cubit<AuthState> {
       emit(AuthState.forgetPasswordSuccess(data));
       showToast(
           message: "Password reset link sent to your email", isError: false);
+      context.pushNamed(
+        Routes.otpScreen,
+        arguments: emailController.text,
+      );
     }, failure: (error) {
       emit(AuthState.forgetPasswordError(error.toString()));
       showToast(message: error.toString(), isError: true);

@@ -25,8 +25,11 @@ class AppRouter {
           settings: settings,
         );
       case Routes.otpScreen:
+        final email = settings.arguments as String;
         return MaterialPageRoute(
-          builder: (_) => OtpScreen(),
+          builder: (_) => OtpScreen(
+            email: email,
+          ),
           settings: settings,
         );
     }
