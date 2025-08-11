@@ -20,5 +20,8 @@ abstract class AuthRemoteDataSource {
   @POST(ApiConstants.registerEp)
   Future<RegisterResponseModel> register(
     @Body() RegisterRequestModel registerRequestModel,
+  ); @POST(ApiConstants.forgetPasswordEp)
+  Future<String> forgetPassword(
+    @Body() Map<String, dynamic> body,
   );
 }

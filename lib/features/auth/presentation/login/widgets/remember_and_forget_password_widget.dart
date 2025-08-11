@@ -1,7 +1,8 @@
-
+import 'package:black_market/core/extensions/navigation_extension.dart';
 import 'package:black_market/features/auth/presentation/login/widgets/remember_widget.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/routing/routes.dart';
 import '../../../../../core/theming/app_string.dart';
 import '../../../../../core/theming/app_styles.dart';
 import '../../../../../core/utils/spacing.dart';
@@ -18,7 +19,9 @@ class RememberAndForgetPasswordWidget extends StatelessWidget {
           children: [
             RememberWidget(),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                context.pushNamed(Routes.forgetPasswordScreen);
+              },
               child: Text(
                 AppString.forgetPassword,
                 style: AppStyles.font18PrimaryMedium,

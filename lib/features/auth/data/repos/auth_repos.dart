@@ -13,6 +13,8 @@ abstract class AuthRepos {
 
   Future<ApiResult<RegisterResponseModel>> register(
       RegisterRequestModel registerRequestModel);
+
+  Future<ApiResult<String>> forgetPassword(Map<String, dynamic> body);
 }
 
 class AuthReposImpl implements AuthRepos {
@@ -35,6 +37,16 @@ class AuthReposImpl implements AuthRepos {
   Future<ApiResult<RegisterResponseModel>> register(RegisterRequestModel registerRequestModel)async {
     try {
       final response = await authRemoteDataSource.register(registerRequestModel);
+      return ApiResult.success(response);
+    } catch (e) {
+      return ApiResult.failure(ApiErrorHandler.handle(e.toString()));
+    }
+  }
+
+  @override
+  Future<ApiResult<String>> forgetPassword(Map<String, dynamic> body)async {
+    try {
+      final response = await authRemoteDataSource.forgetPassword(body);
       return ApiResult.success(response);
     } catch (e) {
       return ApiResult.failure(ApiErrorHandler.handle(e.toString()));

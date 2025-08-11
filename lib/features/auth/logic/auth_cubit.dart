@@ -62,6 +62,25 @@ class AuthCubit extends Cubit<AuthState> {
     });
   }
 
+  //forget password
+  Future<void> forgetPassword() async {
+    emit(AuthState.forgetPasswordLoading());
+    final requestBody = {
+      "email": emailController.text,
+    };
+    final response = await authRepos.forgetPassword(requestBody);
+    await SharedPrefHelper.setData(
+        SharedPrefKeys.userEmailAddress, emailController.text);
+    response.when(success: (data) {
+      emit(AuthState.forgetPasswordSuccess(data));
+      showToast(
+          message: "Password reset link sent to your email", isError: false);
+    }, failure: (error) {
+      emit(AuthState.forgetPasswordError(error.toString()));
+      showToast(message: error.toString(), isError: true);
+    });
+  }
+
   Future<void> saveUserToken(String token) async {
     await SharedPrefHelper.setSecuredString(SharedPrefKeys.userToken, token);
     DioFactory.setTokenIntoHeaderAfterLogin(token);
