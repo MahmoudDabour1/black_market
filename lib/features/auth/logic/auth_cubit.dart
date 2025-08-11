@@ -6,6 +6,7 @@ import '../../../core/helpers/helper_methods.dart';
 import '../../../core/helpers/shared_pref_helper.dart';
 import '../../../core/helpers/shared_pref_keys.dart';
 import '../../../core/networking/dio_factory.dart';
+import '../data/models/register_request_model.dart';
 import '../data/repos/auth_repos.dart';
 import 'auth_state.dart';
 
@@ -16,6 +17,8 @@ class AuthCubit extends Cubit<AuthState> {
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final nameController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
   //login
   Future<void> login() async {
@@ -34,6 +37,27 @@ class AuthCubit extends Cubit<AuthState> {
       showToast(message: "Login successful", isError: false);
     }, failure: (error) {
       emit(AuthState.loginError(error.toString()));
+      showToast(message: error.toString(), isError: true);
+    });
+  }
+
+  //register
+  Future<void> register() async {
+    emit(AuthState.registerLoading());
+    final response = await authRepos.register(
+      RegisterRequestModel(
+        name: nameController.text,
+        email: emailController.text,
+        password: passwordController.text,
+        password_confirmation: confirmPasswordController.text,
+      ),
+    );
+    response.when(success: (data) async {
+      emit(AuthState.registerSuccess(data));
+      await saveUserToken(data.accessToken ?? "");
+      showToast(message: "Registration successful", isError: false);
+    }, failure: (error) {
+      emit(AuthState.registerError(error.toString()));
       showToast(message: error.toString(), isError: true);
     });
   }

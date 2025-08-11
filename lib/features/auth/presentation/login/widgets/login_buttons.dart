@@ -1,3 +1,5 @@
+import 'package:black_market/core/extensions/navigation_extension.dart';
+import 'package:black_market/core/routing/routes.dart';
 import 'package:black_market/core/widgets/app_custom_button.dart';
 import 'package:black_market/features/auth/logic/auth_cubit.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +41,9 @@ class LoginButtons extends StatelessWidget {
                   style: AppStyles.font14WhiteMedium,
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    context.pushNamed(Routes.registerScreen);
+                  },
                   child: Text(
                     AppString.sign,
                     style: AppStyles.font16whiteMedium.copyWith(
