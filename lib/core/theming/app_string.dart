@@ -43,4 +43,5 @@ class AppString {
   static const enterCode = "قم بإدخال الكود المرسل";
   static const didHaveCode = "لم تتلقى الرمز";
   static const sendAgain = "إعادة الإرسال";
+
 }
