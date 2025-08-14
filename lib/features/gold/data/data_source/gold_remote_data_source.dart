@@ -1,3 +1,4 @@
+import 'package:black_market/features/gold/data/models/companies_response_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -13,4 +14,7 @@ abstract class GoldRemoteDataSource {
 
   @GET(ApiConstants.goldEP)
   Future<List<GoldResponseModel>> getGoldPrices();
+
+  @GET(ApiConstants.companiesEP)
+  Future<List<CompaniesResponseModel>> getCompanies();
 }

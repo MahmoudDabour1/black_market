@@ -20,7 +20,7 @@ class GoldGridView extends StatelessWidget {
           crossAxisSpacing: 30.w,
           mainAxisSpacing: 20.h,
         ),
-        physics: const NeverScrollableScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
         itemCount: data.length,
         itemBuilder: (context, index) {

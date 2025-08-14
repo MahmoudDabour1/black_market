@@ -22,4 +22,19 @@ class GoldCubit extends Cubit<GoldState> {
       },
     );
   }
+
+  Future<void> fetchCompaniesData() async {
+    emit(GoldState.companiesLoading());
+    final response = await goldRepos.getCompanies();
+    response.when(
+      success: (data) {
+        emit(GoldState.companiesSuccess(data));
+      },
+      failure: (error) {
+        logger.w(error.toString());
+        emit(GoldState.companiesFailure(error.toString()));
+      },
+    );
+
+  }
 }

@@ -10,13 +10,23 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/di/dependency_injection.dart';
 import 'gold_tap.dart';
 
-class GoldScreen extends StatelessWidget {
+class GoldScreen extends StatefulWidget {
   const GoldScreen({super.key});
 
   @override
+  State<GoldScreen> createState() => _GoldScreenState();
+}
+
+class _GoldScreenState extends State<GoldScreen> {
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   context.read<GoldCubit>().fetchCompaniesData();
+  // }
+  @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => GoldCubit(sl())..fetchGoldPrices(),
+      create: (context) => GoldCubit(sl())..fetchGoldPrices()..fetchCompaniesData(),
       child: DefaultTabController(
         length: 3,
         child: Scaffold(
