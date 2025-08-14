@@ -5,6 +5,7 @@ abstract class Routes{
   static const String otpScreen = '/OtpScreen';
   static const String newPasswordScreen = '/NewPasswordScreen';
   static const String changePasswordDoneScreen = '/ChangePasswordDoneScreen';
+  static const String goldScreen = '/GoldScreen';
 
 
 }

@@ -4,6 +4,8 @@ class ApiConstants {
   static const String registerEp = "register";
   static const String forgetPasswordEp = "forget_password";
   static const String updateForgetPasswordEP = "update_forgotten_password";
+  static const String goldEP = "gold";
+  static const String imagesBaseUrl = "https://xyzys.space/storage/";
 }
 
 class ApiErrors {

@@ -1,5 +1,6 @@
 import 'package:black_market/core/routing/routes.dart';
 import 'package:black_market/features/auth/presentation/forget_password/new_password_screen.dart';
+import 'package:black_market/features/gold/presentation/gold_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/auth/presentation/forget_password/forget_password_screen.dart';
@@ -43,6 +44,11 @@ class AppRouter {
             email: email,
             code: otp,
           ),
+          settings: settings,
+        );
+      case Routes.goldScreen:
+        return MaterialPageRoute(
+          builder: (_) => GoldScreen(),
           settings: settings,
         );
       // case Routes.changePasswordDoneScreen:
