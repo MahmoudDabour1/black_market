@@ -7,6 +7,8 @@ import '../../features/auth/presentation/forget_password/forget_password_screen.
 import '../../features/auth/presentation/forget_password/otp_screen.dart';
 import '../../features/auth/presentation/login/login_screen.dart';
 import '../../features/auth/presentation/register/register_screen.dart';
+import '../../features/profile/presentation/main_currencies_screen.dart';
+import '../../features/profile/presentation/profile_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -51,12 +53,16 @@ class AppRouter {
           builder: (_) => GoldScreen(),
           settings: settings,
         );
-      // case Routes.changePasswordDoneScreen:
-      //   return MaterialPageRoute(
-      //     builder: (_) => OtpScreen(
-      //     ),
-      //     settings: settings,
-      //   );
+      case Routes.profileScreen:
+        return MaterialPageRoute(
+          builder: (_) => ProfileScreen(),
+          settings: settings,
+        );
+      case Routes.mainCurrenciesScreen:
+        return MaterialPageRoute(
+          builder: (_) => MainCurrenciesScreen(),
+          settings: settings,
+        );
     }
     return null;
   }

@@ -8,6 +8,7 @@ class ApiConstants {
   static const String imagesBaseUrl = "https://xyzys.space/storage/";
   static const String companiesEP = "/companies";
   static const String ingotsAndCoinsEP = "/ingots-coins";
+  static const String countriesEP = "currencies/latest";
 }
 
 class ApiErrors {

@@ -50,5 +50,10 @@ class AppString {
   static const returnPrice = "مبلغ الاستيراد";
   static const different = "الفرق";
   static const pound = "ج.م";
+  static const shareApp = "مشاركة التطبيق";
+  static const aboutApp = "عن التطبيق";
+  static const mainCoin = "العملة الاساسية";
+  static const settings = "الاعدادات";
+  static const selectMainCoin = "حدد العملة الأساسية";
 
 }
