@@ -6,6 +6,8 @@ class ApiConstants {
   static const String updateForgetPasswordEP = "update_forgotten_password";
   static const String goldEP = "gold";
   static const String imagesBaseUrl = "https://xyzys.space/storage/";
+  static const String companiesEP = "/companies";
+  static const String ingotsAndCoinsEP = "/ingots-coins";
 }
 
 class ApiErrors {

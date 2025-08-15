@@ -9,6 +9,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/di/dependency_injection.dart';
 import 'gold_tap.dart';
+import 'ingots_tap.dart';
 
 class GoldScreen extends StatelessWidget {
   const GoldScreen({super.key});
@@ -16,7 +17,19 @@ class GoldScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => GoldCubit(sl())..fetchGoldPrices(),
+      create: (context) {
+        final cubit = GoldCubit(sl());
+
+        Future.microtask(() async {
+          await cubit.fetchGoldPrices();
+          await Future.wait([
+            cubit.fetchIngotsAndCoins(),
+            cubit.fetchCompaniesData(),
+          ]);
+        });
+
+        return cubit;
+      },
       child: DefaultTabController(
         length: 3,
         child: Scaffold(
@@ -45,7 +58,7 @@ class GoldScreen extends StatelessWidget {
           body: TabBarView(
             children: [
               GoldTap(),
-              Center(child: Text("Ingots content")),
+              IngotsTap(),
               Center(child: Text("Third tab content")),
             ],
           ),

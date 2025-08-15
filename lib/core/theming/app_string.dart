@@ -43,5 +43,12 @@ class AppString {
   static const enterCode = "قم بإدخال الكود المرسل";
   static const didHaveCode = "لم تتلقى الرمز";
   static const sendAgain = "إعادة الإرسال";
+  static const gramPrice = "سعر الجرام";
+  static const gramWorkManShop = "مصنعية الجرام";
+  static const allTax = "الضريبة الكلية";
+  static const allPrice = "السعر شامل الضريبة المصنعية";
+  static const returnPrice = "مبلغ الاستيراد";
+  static const different = "الفرق";
+  static const pound = "ج.م";
 
 }
