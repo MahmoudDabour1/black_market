@@ -12,5 +12,12 @@ class ProfileState<T> with _$ProfileState<T> {
   const factory ProfileState.countriesFailure(
       {required String errorMessage}) = CountriesFailure<T>;
 
+  const factory ProfileState.aboutAppLoading() = AboutAppLoading;
+
+  const factory ProfileState.aboutAppSuccess(T data) =AboutAppSuccess<T>;
+
+  const factory ProfileState.aboutAppFailure(
+      {required String errorMessage}) = AboutAppFailure<T>;
+
 
 }

@@ -1,6 +1,7 @@
 import 'package:black_market/core/routing/routes.dart';
 import 'package:black_market/features/auth/presentation/forget_password/new_password_screen.dart';
 import 'package:black_market/features/gold/presentation/gold_screen.dart';
+import 'package:black_market/features/profile/presentation/about_app_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../../features/auth/presentation/forget_password/forget_password_screen.dart';
@@ -61,6 +62,10 @@ class AppRouter {
       case Routes.mainCurrenciesScreen:
         return MaterialPageRoute(
           builder: (_) => MainCurrenciesScreen(),
+          settings: settings,
+        ); case Routes.aboutAppScreen:
+        return MaterialPageRoute(
+          builder: (_) => AboutAppScreen(),
           settings: settings,
         );
     }

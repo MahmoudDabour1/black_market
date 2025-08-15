@@ -19,4 +19,17 @@ class ProfileCubit extends Cubit<ProfileState> {
       },
     );
   }
+
+  Future<void> getAboutApp() async {
+    emit(ProfileState.aboutAppLoading());
+    final response = await profileRepos.getAboutApp();
+    response.when(
+      success: (data) {
+        emit(ProfileState.aboutAppSuccess(data));
+      },
+      failure: (e) {
+        emit(ProfileState.aboutAppFailure(errorMessage: e.toString()));
+      },
+    );
+  }
 }

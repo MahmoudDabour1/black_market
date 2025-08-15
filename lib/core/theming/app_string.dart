@@ -55,5 +55,6 @@ class AppString {
   static const mainCoin = "العملة الاساسية";
   static const settings = "الاعدادات";
   static const selectMainCoin = "حدد العملة الأساسية";
+  static const importantNotes = "تنويه هام";
 
 }

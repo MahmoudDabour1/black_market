@@ -33,7 +33,9 @@ class ProfileScreen extends StatelessWidget {
             ),
             ProfileContainerItem(
               title: AppString.aboutApp,
-              onTap: () {},
+              onTap: () {
+                context.pushNamed(Routes.aboutAppScreen);
+              },
               icon: AppAssets.infoIcon,
             ),
             ProfileContainerItem(
