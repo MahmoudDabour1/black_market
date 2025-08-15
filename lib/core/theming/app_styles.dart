@@ -14,6 +14,14 @@ class AppStyles {
     fontSize: 16.sp,
     color: AppColors.whiteColor,
     fontWeight: FontWeightHelper.medium,
+  ); static TextStyle font16whiteSemiBold = TextStyle(
+    fontSize: 16.sp,
+    color: AppColors.whiteColor,
+    fontWeight: FontWeightHelper.semiBold,
+  );static TextStyle font18whiteSemiBold = TextStyle(
+    fontSize: 18.sp,
+    color: AppColors.whiteColor,
+    fontWeight: FontWeightHelper.semiBold,
   );
   static TextStyle font16GrayLight = TextStyle(
     fontSize: 16.sp,

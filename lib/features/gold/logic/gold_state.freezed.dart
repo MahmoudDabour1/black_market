@@ -25,6 +25,9 @@ mixin _$GoldState<T> {
     required TResult Function() companiesLoading,
     required TResult Function(T companiesData) companiesSuccess,
     required TResult Function(String errorMessage) companiesFailure,
+    required TResult Function() ingotsAndCoinsLoading,
+    required TResult Function(T ingotsAndCoinsData) ingotsAndCoinsSuccess,
+    required TResult Function(String errorMessage) ingotsAndCoinsFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +39,9 @@ mixin _$GoldState<T> {
     TResult? Function()? companiesLoading,
     TResult? Function(T companiesData)? companiesSuccess,
     TResult? Function(String errorMessage)? companiesFailure,
+    TResult? Function()? ingotsAndCoinsLoading,
+    TResult? Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult? Function(String errorMessage)? ingotsAndCoinsFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +53,9 @@ mixin _$GoldState<T> {
     TResult Function()? companiesLoading,
     TResult Function(T companiesData)? companiesSuccess,
     TResult Function(String errorMessage)? companiesFailure,
+    TResult Function()? ingotsAndCoinsLoading,
+    TResult Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult Function(String errorMessage)? ingotsAndCoinsFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,6 +68,12 @@ mixin _$GoldState<T> {
     required TResult Function(CompaniesLoading<T> value) companiesLoading,
     required TResult Function(CompaniesSuccess<T> value) companiesSuccess,
     required TResult Function(CompaniesFailure<T> value) companiesFailure,
+    required TResult Function(IngotsAndCoinsLoading<T> value)
+        ingotsAndCoinsLoading,
+    required TResult Function(IngotsAndCoinsSuccess<T> value)
+        ingotsAndCoinsSuccess,
+    required TResult Function(IngotsAndCoinsFailure<T> value)
+        ingotsAndCoinsFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +85,9 @@ mixin _$GoldState<T> {
     TResult? Function(CompaniesLoading<T> value)? companiesLoading,
     TResult? Function(CompaniesSuccess<T> value)? companiesSuccess,
     TResult? Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult? Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult? Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult? Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -81,6 +99,9 @@ mixin _$GoldState<T> {
     TResult Function(CompaniesLoading<T> value)? companiesLoading,
     TResult Function(CompaniesSuccess<T> value)? companiesSuccess,
     TResult Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -155,6 +176,9 @@ class _$GoldInitialImpl<T> implements GoldInitial<T> {
     required TResult Function() companiesLoading,
     required TResult Function(T companiesData) companiesSuccess,
     required TResult Function(String errorMessage) companiesFailure,
+    required TResult Function() ingotsAndCoinsLoading,
+    required TResult Function(T ingotsAndCoinsData) ingotsAndCoinsSuccess,
+    required TResult Function(String errorMessage) ingotsAndCoinsFailure,
   }) {
     return initial();
   }
@@ -169,6 +193,9 @@ class _$GoldInitialImpl<T> implements GoldInitial<T> {
     TResult? Function()? companiesLoading,
     TResult? Function(T companiesData)? companiesSuccess,
     TResult? Function(String errorMessage)? companiesFailure,
+    TResult? Function()? ingotsAndCoinsLoading,
+    TResult? Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult? Function(String errorMessage)? ingotsAndCoinsFailure,
   }) {
     return initial?.call();
   }
@@ -183,6 +210,9 @@ class _$GoldInitialImpl<T> implements GoldInitial<T> {
     TResult Function()? companiesLoading,
     TResult Function(T companiesData)? companiesSuccess,
     TResult Function(String errorMessage)? companiesFailure,
+    TResult Function()? ingotsAndCoinsLoading,
+    TResult Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult Function(String errorMessage)? ingotsAndCoinsFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -201,6 +231,12 @@ class _$GoldInitialImpl<T> implements GoldInitial<T> {
     required TResult Function(CompaniesLoading<T> value) companiesLoading,
     required TResult Function(CompaniesSuccess<T> value) companiesSuccess,
     required TResult Function(CompaniesFailure<T> value) companiesFailure,
+    required TResult Function(IngotsAndCoinsLoading<T> value)
+        ingotsAndCoinsLoading,
+    required TResult Function(IngotsAndCoinsSuccess<T> value)
+        ingotsAndCoinsSuccess,
+    required TResult Function(IngotsAndCoinsFailure<T> value)
+        ingotsAndCoinsFailure,
   }) {
     return initial(this);
   }
@@ -215,6 +251,9 @@ class _$GoldInitialImpl<T> implements GoldInitial<T> {
     TResult? Function(CompaniesLoading<T> value)? companiesLoading,
     TResult? Function(CompaniesSuccess<T> value)? companiesSuccess,
     TResult? Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult? Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult? Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult? Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
   }) {
     return initial?.call(this);
   }
@@ -229,6 +268,9 @@ class _$GoldInitialImpl<T> implements GoldInitial<T> {
     TResult Function(CompaniesLoading<T> value)? companiesLoading,
     TResult Function(CompaniesSuccess<T> value)? companiesSuccess,
     TResult Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -290,6 +332,9 @@ class _$GoldLoadingImpl<T> implements GoldLoading<T> {
     required TResult Function() companiesLoading,
     required TResult Function(T companiesData) companiesSuccess,
     required TResult Function(String errorMessage) companiesFailure,
+    required TResult Function() ingotsAndCoinsLoading,
+    required TResult Function(T ingotsAndCoinsData) ingotsAndCoinsSuccess,
+    required TResult Function(String errorMessage) ingotsAndCoinsFailure,
   }) {
     return goldLoading();
   }
@@ -304,6 +349,9 @@ class _$GoldLoadingImpl<T> implements GoldLoading<T> {
     TResult? Function()? companiesLoading,
     TResult? Function(T companiesData)? companiesSuccess,
     TResult? Function(String errorMessage)? companiesFailure,
+    TResult? Function()? ingotsAndCoinsLoading,
+    TResult? Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult? Function(String errorMessage)? ingotsAndCoinsFailure,
   }) {
     return goldLoading?.call();
   }
@@ -318,6 +366,9 @@ class _$GoldLoadingImpl<T> implements GoldLoading<T> {
     TResult Function()? companiesLoading,
     TResult Function(T companiesData)? companiesSuccess,
     TResult Function(String errorMessage)? companiesFailure,
+    TResult Function()? ingotsAndCoinsLoading,
+    TResult Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult Function(String errorMessage)? ingotsAndCoinsFailure,
     required TResult orElse(),
   }) {
     if (goldLoading != null) {
@@ -336,6 +387,12 @@ class _$GoldLoadingImpl<T> implements GoldLoading<T> {
     required TResult Function(CompaniesLoading<T> value) companiesLoading,
     required TResult Function(CompaniesSuccess<T> value) companiesSuccess,
     required TResult Function(CompaniesFailure<T> value) companiesFailure,
+    required TResult Function(IngotsAndCoinsLoading<T> value)
+        ingotsAndCoinsLoading,
+    required TResult Function(IngotsAndCoinsSuccess<T> value)
+        ingotsAndCoinsSuccess,
+    required TResult Function(IngotsAndCoinsFailure<T> value)
+        ingotsAndCoinsFailure,
   }) {
     return goldLoading(this);
   }
@@ -350,6 +407,9 @@ class _$GoldLoadingImpl<T> implements GoldLoading<T> {
     TResult? Function(CompaniesLoading<T> value)? companiesLoading,
     TResult? Function(CompaniesSuccess<T> value)? companiesSuccess,
     TResult? Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult? Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult? Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult? Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
   }) {
     return goldLoading?.call(this);
   }
@@ -364,6 +424,9 @@ class _$GoldLoadingImpl<T> implements GoldLoading<T> {
     TResult Function(CompaniesLoading<T> value)? companiesLoading,
     TResult Function(CompaniesSuccess<T> value)? companiesSuccess,
     TResult Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
     required TResult orElse(),
   }) {
     if (goldLoading != null) {
@@ -454,6 +517,9 @@ class _$GoldSuccessImpl<T> implements GoldSuccess<T> {
     required TResult Function() companiesLoading,
     required TResult Function(T companiesData) companiesSuccess,
     required TResult Function(String errorMessage) companiesFailure,
+    required TResult Function() ingotsAndCoinsLoading,
+    required TResult Function(T ingotsAndCoinsData) ingotsAndCoinsSuccess,
+    required TResult Function(String errorMessage) ingotsAndCoinsFailure,
   }) {
     return goldSuccess(goldData);
   }
@@ -468,6 +534,9 @@ class _$GoldSuccessImpl<T> implements GoldSuccess<T> {
     TResult? Function()? companiesLoading,
     TResult? Function(T companiesData)? companiesSuccess,
     TResult? Function(String errorMessage)? companiesFailure,
+    TResult? Function()? ingotsAndCoinsLoading,
+    TResult? Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult? Function(String errorMessage)? ingotsAndCoinsFailure,
   }) {
     return goldSuccess?.call(goldData);
   }
@@ -482,6 +551,9 @@ class _$GoldSuccessImpl<T> implements GoldSuccess<T> {
     TResult Function()? companiesLoading,
     TResult Function(T companiesData)? companiesSuccess,
     TResult Function(String errorMessage)? companiesFailure,
+    TResult Function()? ingotsAndCoinsLoading,
+    TResult Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult Function(String errorMessage)? ingotsAndCoinsFailure,
     required TResult orElse(),
   }) {
     if (goldSuccess != null) {
@@ -500,6 +572,12 @@ class _$GoldSuccessImpl<T> implements GoldSuccess<T> {
     required TResult Function(CompaniesLoading<T> value) companiesLoading,
     required TResult Function(CompaniesSuccess<T> value) companiesSuccess,
     required TResult Function(CompaniesFailure<T> value) companiesFailure,
+    required TResult Function(IngotsAndCoinsLoading<T> value)
+        ingotsAndCoinsLoading,
+    required TResult Function(IngotsAndCoinsSuccess<T> value)
+        ingotsAndCoinsSuccess,
+    required TResult Function(IngotsAndCoinsFailure<T> value)
+        ingotsAndCoinsFailure,
   }) {
     return goldSuccess(this);
   }
@@ -514,6 +592,9 @@ class _$GoldSuccessImpl<T> implements GoldSuccess<T> {
     TResult? Function(CompaniesLoading<T> value)? companiesLoading,
     TResult? Function(CompaniesSuccess<T> value)? companiesSuccess,
     TResult? Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult? Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult? Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult? Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
   }) {
     return goldSuccess?.call(this);
   }
@@ -528,6 +609,9 @@ class _$GoldSuccessImpl<T> implements GoldSuccess<T> {
     TResult Function(CompaniesLoading<T> value)? companiesLoading,
     TResult Function(CompaniesSuccess<T> value)? companiesSuccess,
     TResult Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
     required TResult orElse(),
   }) {
     if (goldSuccess != null) {
@@ -626,6 +710,9 @@ class _$GoldFailureImpl<T> implements GoldFailure<T> {
     required TResult Function() companiesLoading,
     required TResult Function(T companiesData) companiesSuccess,
     required TResult Function(String errorMessage) companiesFailure,
+    required TResult Function() ingotsAndCoinsLoading,
+    required TResult Function(T ingotsAndCoinsData) ingotsAndCoinsSuccess,
+    required TResult Function(String errorMessage) ingotsAndCoinsFailure,
   }) {
     return goldFailure(errorMessage);
   }
@@ -640,6 +727,9 @@ class _$GoldFailureImpl<T> implements GoldFailure<T> {
     TResult? Function()? companiesLoading,
     TResult? Function(T companiesData)? companiesSuccess,
     TResult? Function(String errorMessage)? companiesFailure,
+    TResult? Function()? ingotsAndCoinsLoading,
+    TResult? Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult? Function(String errorMessage)? ingotsAndCoinsFailure,
   }) {
     return goldFailure?.call(errorMessage);
   }
@@ -654,6 +744,9 @@ class _$GoldFailureImpl<T> implements GoldFailure<T> {
     TResult Function()? companiesLoading,
     TResult Function(T companiesData)? companiesSuccess,
     TResult Function(String errorMessage)? companiesFailure,
+    TResult Function()? ingotsAndCoinsLoading,
+    TResult Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult Function(String errorMessage)? ingotsAndCoinsFailure,
     required TResult orElse(),
   }) {
     if (goldFailure != null) {
@@ -672,6 +765,12 @@ class _$GoldFailureImpl<T> implements GoldFailure<T> {
     required TResult Function(CompaniesLoading<T> value) companiesLoading,
     required TResult Function(CompaniesSuccess<T> value) companiesSuccess,
     required TResult Function(CompaniesFailure<T> value) companiesFailure,
+    required TResult Function(IngotsAndCoinsLoading<T> value)
+        ingotsAndCoinsLoading,
+    required TResult Function(IngotsAndCoinsSuccess<T> value)
+        ingotsAndCoinsSuccess,
+    required TResult Function(IngotsAndCoinsFailure<T> value)
+        ingotsAndCoinsFailure,
   }) {
     return goldFailure(this);
   }
@@ -686,6 +785,9 @@ class _$GoldFailureImpl<T> implements GoldFailure<T> {
     TResult? Function(CompaniesLoading<T> value)? companiesLoading,
     TResult? Function(CompaniesSuccess<T> value)? companiesSuccess,
     TResult? Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult? Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult? Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult? Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
   }) {
     return goldFailure?.call(this);
   }
@@ -700,6 +802,9 @@ class _$GoldFailureImpl<T> implements GoldFailure<T> {
     TResult Function(CompaniesLoading<T> value)? companiesLoading,
     TResult Function(CompaniesSuccess<T> value)? companiesSuccess,
     TResult Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
     required TResult orElse(),
   }) {
     if (goldFailure != null) {
@@ -770,6 +875,9 @@ class _$CompaniesLoadingImpl<T> implements CompaniesLoading<T> {
     required TResult Function() companiesLoading,
     required TResult Function(T companiesData) companiesSuccess,
     required TResult Function(String errorMessage) companiesFailure,
+    required TResult Function() ingotsAndCoinsLoading,
+    required TResult Function(T ingotsAndCoinsData) ingotsAndCoinsSuccess,
+    required TResult Function(String errorMessage) ingotsAndCoinsFailure,
   }) {
     return companiesLoading();
   }
@@ -784,6 +892,9 @@ class _$CompaniesLoadingImpl<T> implements CompaniesLoading<T> {
     TResult? Function()? companiesLoading,
     TResult? Function(T companiesData)? companiesSuccess,
     TResult? Function(String errorMessage)? companiesFailure,
+    TResult? Function()? ingotsAndCoinsLoading,
+    TResult? Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult? Function(String errorMessage)? ingotsAndCoinsFailure,
   }) {
     return companiesLoading?.call();
   }
@@ -798,6 +909,9 @@ class _$CompaniesLoadingImpl<T> implements CompaniesLoading<T> {
     TResult Function()? companiesLoading,
     TResult Function(T companiesData)? companiesSuccess,
     TResult Function(String errorMessage)? companiesFailure,
+    TResult Function()? ingotsAndCoinsLoading,
+    TResult Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult Function(String errorMessage)? ingotsAndCoinsFailure,
     required TResult orElse(),
   }) {
     if (companiesLoading != null) {
@@ -816,6 +930,12 @@ class _$CompaniesLoadingImpl<T> implements CompaniesLoading<T> {
     required TResult Function(CompaniesLoading<T> value) companiesLoading,
     required TResult Function(CompaniesSuccess<T> value) companiesSuccess,
     required TResult Function(CompaniesFailure<T> value) companiesFailure,
+    required TResult Function(IngotsAndCoinsLoading<T> value)
+        ingotsAndCoinsLoading,
+    required TResult Function(IngotsAndCoinsSuccess<T> value)
+        ingotsAndCoinsSuccess,
+    required TResult Function(IngotsAndCoinsFailure<T> value)
+        ingotsAndCoinsFailure,
   }) {
     return companiesLoading(this);
   }
@@ -830,6 +950,9 @@ class _$CompaniesLoadingImpl<T> implements CompaniesLoading<T> {
     TResult? Function(CompaniesLoading<T> value)? companiesLoading,
     TResult? Function(CompaniesSuccess<T> value)? companiesSuccess,
     TResult? Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult? Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult? Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult? Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
   }) {
     return companiesLoading?.call(this);
   }
@@ -844,6 +967,9 @@ class _$CompaniesLoadingImpl<T> implements CompaniesLoading<T> {
     TResult Function(CompaniesLoading<T> value)? companiesLoading,
     TResult Function(CompaniesSuccess<T> value)? companiesSuccess,
     TResult Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
     required TResult orElse(),
   }) {
     if (companiesLoading != null) {
@@ -935,6 +1061,9 @@ class _$CompaniesSuccessImpl<T> implements CompaniesSuccess<T> {
     required TResult Function() companiesLoading,
     required TResult Function(T companiesData) companiesSuccess,
     required TResult Function(String errorMessage) companiesFailure,
+    required TResult Function() ingotsAndCoinsLoading,
+    required TResult Function(T ingotsAndCoinsData) ingotsAndCoinsSuccess,
+    required TResult Function(String errorMessage) ingotsAndCoinsFailure,
   }) {
     return companiesSuccess(companiesData);
   }
@@ -949,6 +1078,9 @@ class _$CompaniesSuccessImpl<T> implements CompaniesSuccess<T> {
     TResult? Function()? companiesLoading,
     TResult? Function(T companiesData)? companiesSuccess,
     TResult? Function(String errorMessage)? companiesFailure,
+    TResult? Function()? ingotsAndCoinsLoading,
+    TResult? Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult? Function(String errorMessage)? ingotsAndCoinsFailure,
   }) {
     return companiesSuccess?.call(companiesData);
   }
@@ -963,6 +1095,9 @@ class _$CompaniesSuccessImpl<T> implements CompaniesSuccess<T> {
     TResult Function()? companiesLoading,
     TResult Function(T companiesData)? companiesSuccess,
     TResult Function(String errorMessage)? companiesFailure,
+    TResult Function()? ingotsAndCoinsLoading,
+    TResult Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult Function(String errorMessage)? ingotsAndCoinsFailure,
     required TResult orElse(),
   }) {
     if (companiesSuccess != null) {
@@ -981,6 +1116,12 @@ class _$CompaniesSuccessImpl<T> implements CompaniesSuccess<T> {
     required TResult Function(CompaniesLoading<T> value) companiesLoading,
     required TResult Function(CompaniesSuccess<T> value) companiesSuccess,
     required TResult Function(CompaniesFailure<T> value) companiesFailure,
+    required TResult Function(IngotsAndCoinsLoading<T> value)
+        ingotsAndCoinsLoading,
+    required TResult Function(IngotsAndCoinsSuccess<T> value)
+        ingotsAndCoinsSuccess,
+    required TResult Function(IngotsAndCoinsFailure<T> value)
+        ingotsAndCoinsFailure,
   }) {
     return companiesSuccess(this);
   }
@@ -995,6 +1136,9 @@ class _$CompaniesSuccessImpl<T> implements CompaniesSuccess<T> {
     TResult? Function(CompaniesLoading<T> value)? companiesLoading,
     TResult? Function(CompaniesSuccess<T> value)? companiesSuccess,
     TResult? Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult? Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult? Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult? Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
   }) {
     return companiesSuccess?.call(this);
   }
@@ -1009,6 +1153,9 @@ class _$CompaniesSuccessImpl<T> implements CompaniesSuccess<T> {
     TResult Function(CompaniesLoading<T> value)? companiesLoading,
     TResult Function(CompaniesSuccess<T> value)? companiesSuccess,
     TResult Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
     required TResult orElse(),
   }) {
     if (companiesSuccess != null) {
@@ -1108,6 +1255,9 @@ class _$CompaniesFailureImpl<T> implements CompaniesFailure<T> {
     required TResult Function() companiesLoading,
     required TResult Function(T companiesData) companiesSuccess,
     required TResult Function(String errorMessage) companiesFailure,
+    required TResult Function() ingotsAndCoinsLoading,
+    required TResult Function(T ingotsAndCoinsData) ingotsAndCoinsSuccess,
+    required TResult Function(String errorMessage) ingotsAndCoinsFailure,
   }) {
     return companiesFailure(errorMessage);
   }
@@ -1122,6 +1272,9 @@ class _$CompaniesFailureImpl<T> implements CompaniesFailure<T> {
     TResult? Function()? companiesLoading,
     TResult? Function(T companiesData)? companiesSuccess,
     TResult? Function(String errorMessage)? companiesFailure,
+    TResult? Function()? ingotsAndCoinsLoading,
+    TResult? Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult? Function(String errorMessage)? ingotsAndCoinsFailure,
   }) {
     return companiesFailure?.call(errorMessage);
   }
@@ -1136,6 +1289,9 @@ class _$CompaniesFailureImpl<T> implements CompaniesFailure<T> {
     TResult Function()? companiesLoading,
     TResult Function(T companiesData)? companiesSuccess,
     TResult Function(String errorMessage)? companiesFailure,
+    TResult Function()? ingotsAndCoinsLoading,
+    TResult Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult Function(String errorMessage)? ingotsAndCoinsFailure,
     required TResult orElse(),
   }) {
     if (companiesFailure != null) {
@@ -1154,6 +1310,12 @@ class _$CompaniesFailureImpl<T> implements CompaniesFailure<T> {
     required TResult Function(CompaniesLoading<T> value) companiesLoading,
     required TResult Function(CompaniesSuccess<T> value) companiesSuccess,
     required TResult Function(CompaniesFailure<T> value) companiesFailure,
+    required TResult Function(IngotsAndCoinsLoading<T> value)
+        ingotsAndCoinsLoading,
+    required TResult Function(IngotsAndCoinsSuccess<T> value)
+        ingotsAndCoinsSuccess,
+    required TResult Function(IngotsAndCoinsFailure<T> value)
+        ingotsAndCoinsFailure,
   }) {
     return companiesFailure(this);
   }
@@ -1168,6 +1330,9 @@ class _$CompaniesFailureImpl<T> implements CompaniesFailure<T> {
     TResult? Function(CompaniesLoading<T> value)? companiesLoading,
     TResult? Function(CompaniesSuccess<T> value)? companiesSuccess,
     TResult? Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult? Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult? Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult? Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
   }) {
     return companiesFailure?.call(this);
   }
@@ -1182,6 +1347,9 @@ class _$CompaniesFailureImpl<T> implements CompaniesFailure<T> {
     TResult Function(CompaniesLoading<T> value)? companiesLoading,
     TResult Function(CompaniesSuccess<T> value)? companiesSuccess,
     TResult Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
     required TResult orElse(),
   }) {
     if (companiesFailure != null) {
@@ -1202,4 +1370,556 @@ abstract class CompaniesFailure<T> implements GoldState<T> {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$CompaniesFailureImplCopyWith<T, _$CompaniesFailureImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$IngotsAndCoinsLoadingImplCopyWith<T, $Res> {
+  factory _$$IngotsAndCoinsLoadingImplCopyWith(
+          _$IngotsAndCoinsLoadingImpl<T> value,
+          $Res Function(_$IngotsAndCoinsLoadingImpl<T>) then) =
+      __$$IngotsAndCoinsLoadingImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$IngotsAndCoinsLoadingImplCopyWithImpl<T, $Res>
+    extends _$GoldStateCopyWithImpl<T, $Res, _$IngotsAndCoinsLoadingImpl<T>>
+    implements _$$IngotsAndCoinsLoadingImplCopyWith<T, $Res> {
+  __$$IngotsAndCoinsLoadingImplCopyWithImpl(
+      _$IngotsAndCoinsLoadingImpl<T> _value,
+      $Res Function(_$IngotsAndCoinsLoadingImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of GoldState
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$IngotsAndCoinsLoadingImpl<T> implements IngotsAndCoinsLoading<T> {
+  const _$IngotsAndCoinsLoadingImpl();
+
+  @override
+  String toString() {
+    return 'GoldState<$T>.ingotsAndCoinsLoading()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$IngotsAndCoinsLoadingImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() goldLoading,
+    required TResult Function(T goldData) goldSuccess,
+    required TResult Function(String errorMessage) goldFailure,
+    required TResult Function() companiesLoading,
+    required TResult Function(T companiesData) companiesSuccess,
+    required TResult Function(String errorMessage) companiesFailure,
+    required TResult Function() ingotsAndCoinsLoading,
+    required TResult Function(T ingotsAndCoinsData) ingotsAndCoinsSuccess,
+    required TResult Function(String errorMessage) ingotsAndCoinsFailure,
+  }) {
+    return ingotsAndCoinsLoading();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? goldLoading,
+    TResult? Function(T goldData)? goldSuccess,
+    TResult? Function(String errorMessage)? goldFailure,
+    TResult? Function()? companiesLoading,
+    TResult? Function(T companiesData)? companiesSuccess,
+    TResult? Function(String errorMessage)? companiesFailure,
+    TResult? Function()? ingotsAndCoinsLoading,
+    TResult? Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult? Function(String errorMessage)? ingotsAndCoinsFailure,
+  }) {
+    return ingotsAndCoinsLoading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? goldLoading,
+    TResult Function(T goldData)? goldSuccess,
+    TResult Function(String errorMessage)? goldFailure,
+    TResult Function()? companiesLoading,
+    TResult Function(T companiesData)? companiesSuccess,
+    TResult Function(String errorMessage)? companiesFailure,
+    TResult Function()? ingotsAndCoinsLoading,
+    TResult Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult Function(String errorMessage)? ingotsAndCoinsFailure,
+    required TResult orElse(),
+  }) {
+    if (ingotsAndCoinsLoading != null) {
+      return ingotsAndCoinsLoading();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GoldInitial<T> value) initial,
+    required TResult Function(GoldLoading<T> value) goldLoading,
+    required TResult Function(GoldSuccess<T> value) goldSuccess,
+    required TResult Function(GoldFailure<T> value) goldFailure,
+    required TResult Function(CompaniesLoading<T> value) companiesLoading,
+    required TResult Function(CompaniesSuccess<T> value) companiesSuccess,
+    required TResult Function(CompaniesFailure<T> value) companiesFailure,
+    required TResult Function(IngotsAndCoinsLoading<T> value)
+        ingotsAndCoinsLoading,
+    required TResult Function(IngotsAndCoinsSuccess<T> value)
+        ingotsAndCoinsSuccess,
+    required TResult Function(IngotsAndCoinsFailure<T> value)
+        ingotsAndCoinsFailure,
+  }) {
+    return ingotsAndCoinsLoading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GoldInitial<T> value)? initial,
+    TResult? Function(GoldLoading<T> value)? goldLoading,
+    TResult? Function(GoldSuccess<T> value)? goldSuccess,
+    TResult? Function(GoldFailure<T> value)? goldFailure,
+    TResult? Function(CompaniesLoading<T> value)? companiesLoading,
+    TResult? Function(CompaniesSuccess<T> value)? companiesSuccess,
+    TResult? Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult? Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult? Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult? Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
+  }) {
+    return ingotsAndCoinsLoading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GoldInitial<T> value)? initial,
+    TResult Function(GoldLoading<T> value)? goldLoading,
+    TResult Function(GoldSuccess<T> value)? goldSuccess,
+    TResult Function(GoldFailure<T> value)? goldFailure,
+    TResult Function(CompaniesLoading<T> value)? companiesLoading,
+    TResult Function(CompaniesSuccess<T> value)? companiesSuccess,
+    TResult Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
+    required TResult orElse(),
+  }) {
+    if (ingotsAndCoinsLoading != null) {
+      return ingotsAndCoinsLoading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class IngotsAndCoinsLoading<T> implements GoldState<T> {
+  const factory IngotsAndCoinsLoading() = _$IngotsAndCoinsLoadingImpl<T>;
+}
+
+/// @nodoc
+abstract class _$$IngotsAndCoinsSuccessImplCopyWith<T, $Res> {
+  factory _$$IngotsAndCoinsSuccessImplCopyWith(
+          _$IngotsAndCoinsSuccessImpl<T> value,
+          $Res Function(_$IngotsAndCoinsSuccessImpl<T>) then) =
+      __$$IngotsAndCoinsSuccessImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({T ingotsAndCoinsData});
+}
+
+/// @nodoc
+class __$$IngotsAndCoinsSuccessImplCopyWithImpl<T, $Res>
+    extends _$GoldStateCopyWithImpl<T, $Res, _$IngotsAndCoinsSuccessImpl<T>>
+    implements _$$IngotsAndCoinsSuccessImplCopyWith<T, $Res> {
+  __$$IngotsAndCoinsSuccessImplCopyWithImpl(
+      _$IngotsAndCoinsSuccessImpl<T> _value,
+      $Res Function(_$IngotsAndCoinsSuccessImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of GoldState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? ingotsAndCoinsData = freezed,
+  }) {
+    return _then(_$IngotsAndCoinsSuccessImpl<T>(
+      freezed == ingotsAndCoinsData
+          ? _value.ingotsAndCoinsData
+          : ingotsAndCoinsData // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$IngotsAndCoinsSuccessImpl<T> implements IngotsAndCoinsSuccess<T> {
+  const _$IngotsAndCoinsSuccessImpl(this.ingotsAndCoinsData);
+
+  @override
+  final T ingotsAndCoinsData;
+
+  @override
+  String toString() {
+    return 'GoldState<$T>.ingotsAndCoinsSuccess(ingotsAndCoinsData: $ingotsAndCoinsData)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$IngotsAndCoinsSuccessImpl<T> &&
+            const DeepCollectionEquality()
+                .equals(other.ingotsAndCoinsData, ingotsAndCoinsData));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(ingotsAndCoinsData));
+
+  /// Create a copy of GoldState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$IngotsAndCoinsSuccessImplCopyWith<T, _$IngotsAndCoinsSuccessImpl<T>>
+      get copyWith => __$$IngotsAndCoinsSuccessImplCopyWithImpl<T,
+          _$IngotsAndCoinsSuccessImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() goldLoading,
+    required TResult Function(T goldData) goldSuccess,
+    required TResult Function(String errorMessage) goldFailure,
+    required TResult Function() companiesLoading,
+    required TResult Function(T companiesData) companiesSuccess,
+    required TResult Function(String errorMessage) companiesFailure,
+    required TResult Function() ingotsAndCoinsLoading,
+    required TResult Function(T ingotsAndCoinsData) ingotsAndCoinsSuccess,
+    required TResult Function(String errorMessage) ingotsAndCoinsFailure,
+  }) {
+    return ingotsAndCoinsSuccess(ingotsAndCoinsData);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? goldLoading,
+    TResult? Function(T goldData)? goldSuccess,
+    TResult? Function(String errorMessage)? goldFailure,
+    TResult? Function()? companiesLoading,
+    TResult? Function(T companiesData)? companiesSuccess,
+    TResult? Function(String errorMessage)? companiesFailure,
+    TResult? Function()? ingotsAndCoinsLoading,
+    TResult? Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult? Function(String errorMessage)? ingotsAndCoinsFailure,
+  }) {
+    return ingotsAndCoinsSuccess?.call(ingotsAndCoinsData);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? goldLoading,
+    TResult Function(T goldData)? goldSuccess,
+    TResult Function(String errorMessage)? goldFailure,
+    TResult Function()? companiesLoading,
+    TResult Function(T companiesData)? companiesSuccess,
+    TResult Function(String errorMessage)? companiesFailure,
+    TResult Function()? ingotsAndCoinsLoading,
+    TResult Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult Function(String errorMessage)? ingotsAndCoinsFailure,
+    required TResult orElse(),
+  }) {
+    if (ingotsAndCoinsSuccess != null) {
+      return ingotsAndCoinsSuccess(ingotsAndCoinsData);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GoldInitial<T> value) initial,
+    required TResult Function(GoldLoading<T> value) goldLoading,
+    required TResult Function(GoldSuccess<T> value) goldSuccess,
+    required TResult Function(GoldFailure<T> value) goldFailure,
+    required TResult Function(CompaniesLoading<T> value) companiesLoading,
+    required TResult Function(CompaniesSuccess<T> value) companiesSuccess,
+    required TResult Function(CompaniesFailure<T> value) companiesFailure,
+    required TResult Function(IngotsAndCoinsLoading<T> value)
+        ingotsAndCoinsLoading,
+    required TResult Function(IngotsAndCoinsSuccess<T> value)
+        ingotsAndCoinsSuccess,
+    required TResult Function(IngotsAndCoinsFailure<T> value)
+        ingotsAndCoinsFailure,
+  }) {
+    return ingotsAndCoinsSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GoldInitial<T> value)? initial,
+    TResult? Function(GoldLoading<T> value)? goldLoading,
+    TResult? Function(GoldSuccess<T> value)? goldSuccess,
+    TResult? Function(GoldFailure<T> value)? goldFailure,
+    TResult? Function(CompaniesLoading<T> value)? companiesLoading,
+    TResult? Function(CompaniesSuccess<T> value)? companiesSuccess,
+    TResult? Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult? Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult? Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult? Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
+  }) {
+    return ingotsAndCoinsSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GoldInitial<T> value)? initial,
+    TResult Function(GoldLoading<T> value)? goldLoading,
+    TResult Function(GoldSuccess<T> value)? goldSuccess,
+    TResult Function(GoldFailure<T> value)? goldFailure,
+    TResult Function(CompaniesLoading<T> value)? companiesLoading,
+    TResult Function(CompaniesSuccess<T> value)? companiesSuccess,
+    TResult Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
+    required TResult orElse(),
+  }) {
+    if (ingotsAndCoinsSuccess != null) {
+      return ingotsAndCoinsSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class IngotsAndCoinsSuccess<T> implements GoldState<T> {
+  const factory IngotsAndCoinsSuccess(final T ingotsAndCoinsData) =
+      _$IngotsAndCoinsSuccessImpl<T>;
+
+  T get ingotsAndCoinsData;
+
+  /// Create a copy of GoldState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$IngotsAndCoinsSuccessImplCopyWith<T, _$IngotsAndCoinsSuccessImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$IngotsAndCoinsFailureImplCopyWith<T, $Res> {
+  factory _$$IngotsAndCoinsFailureImplCopyWith(
+          _$IngotsAndCoinsFailureImpl<T> value,
+          $Res Function(_$IngotsAndCoinsFailureImpl<T>) then) =
+      __$$IngotsAndCoinsFailureImplCopyWithImpl<T, $Res>;
+  @useResult
+  $Res call({String errorMessage});
+}
+
+/// @nodoc
+class __$$IngotsAndCoinsFailureImplCopyWithImpl<T, $Res>
+    extends _$GoldStateCopyWithImpl<T, $Res, _$IngotsAndCoinsFailureImpl<T>>
+    implements _$$IngotsAndCoinsFailureImplCopyWith<T, $Res> {
+  __$$IngotsAndCoinsFailureImplCopyWithImpl(
+      _$IngotsAndCoinsFailureImpl<T> _value,
+      $Res Function(_$IngotsAndCoinsFailureImpl<T>) _then)
+      : super(_value, _then);
+
+  /// Create a copy of GoldState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? errorMessage = null,
+  }) {
+    return _then(_$IngotsAndCoinsFailureImpl<T>(
+      null == errorMessage
+          ? _value.errorMessage
+          : errorMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$IngotsAndCoinsFailureImpl<T> implements IngotsAndCoinsFailure<T> {
+  const _$IngotsAndCoinsFailureImpl(this.errorMessage);
+
+  @override
+  final String errorMessage;
+
+  @override
+  String toString() {
+    return 'GoldState<$T>.ingotsAndCoinsFailure(errorMessage: $errorMessage)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$IngotsAndCoinsFailureImpl<T> &&
+            (identical(other.errorMessage, errorMessage) ||
+                other.errorMessage == errorMessage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, errorMessage);
+
+  /// Create a copy of GoldState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$IngotsAndCoinsFailureImplCopyWith<T, _$IngotsAndCoinsFailureImpl<T>>
+      get copyWith => __$$IngotsAndCoinsFailureImplCopyWithImpl<T,
+          _$IngotsAndCoinsFailureImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() goldLoading,
+    required TResult Function(T goldData) goldSuccess,
+    required TResult Function(String errorMessage) goldFailure,
+    required TResult Function() companiesLoading,
+    required TResult Function(T companiesData) companiesSuccess,
+    required TResult Function(String errorMessage) companiesFailure,
+    required TResult Function() ingotsAndCoinsLoading,
+    required TResult Function(T ingotsAndCoinsData) ingotsAndCoinsSuccess,
+    required TResult Function(String errorMessage) ingotsAndCoinsFailure,
+  }) {
+    return ingotsAndCoinsFailure(errorMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? goldLoading,
+    TResult? Function(T goldData)? goldSuccess,
+    TResult? Function(String errorMessage)? goldFailure,
+    TResult? Function()? companiesLoading,
+    TResult? Function(T companiesData)? companiesSuccess,
+    TResult? Function(String errorMessage)? companiesFailure,
+    TResult? Function()? ingotsAndCoinsLoading,
+    TResult? Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult? Function(String errorMessage)? ingotsAndCoinsFailure,
+  }) {
+    return ingotsAndCoinsFailure?.call(errorMessage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? goldLoading,
+    TResult Function(T goldData)? goldSuccess,
+    TResult Function(String errorMessage)? goldFailure,
+    TResult Function()? companiesLoading,
+    TResult Function(T companiesData)? companiesSuccess,
+    TResult Function(String errorMessage)? companiesFailure,
+    TResult Function()? ingotsAndCoinsLoading,
+    TResult Function(T ingotsAndCoinsData)? ingotsAndCoinsSuccess,
+    TResult Function(String errorMessage)? ingotsAndCoinsFailure,
+    required TResult orElse(),
+  }) {
+    if (ingotsAndCoinsFailure != null) {
+      return ingotsAndCoinsFailure(errorMessage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GoldInitial<T> value) initial,
+    required TResult Function(GoldLoading<T> value) goldLoading,
+    required TResult Function(GoldSuccess<T> value) goldSuccess,
+    required TResult Function(GoldFailure<T> value) goldFailure,
+    required TResult Function(CompaniesLoading<T> value) companiesLoading,
+    required TResult Function(CompaniesSuccess<T> value) companiesSuccess,
+    required TResult Function(CompaniesFailure<T> value) companiesFailure,
+    required TResult Function(IngotsAndCoinsLoading<T> value)
+        ingotsAndCoinsLoading,
+    required TResult Function(IngotsAndCoinsSuccess<T> value)
+        ingotsAndCoinsSuccess,
+    required TResult Function(IngotsAndCoinsFailure<T> value)
+        ingotsAndCoinsFailure,
+  }) {
+    return ingotsAndCoinsFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(GoldInitial<T> value)? initial,
+    TResult? Function(GoldLoading<T> value)? goldLoading,
+    TResult? Function(GoldSuccess<T> value)? goldSuccess,
+    TResult? Function(GoldFailure<T> value)? goldFailure,
+    TResult? Function(CompaniesLoading<T> value)? companiesLoading,
+    TResult? Function(CompaniesSuccess<T> value)? companiesSuccess,
+    TResult? Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult? Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult? Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult? Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
+  }) {
+    return ingotsAndCoinsFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GoldInitial<T> value)? initial,
+    TResult Function(GoldLoading<T> value)? goldLoading,
+    TResult Function(GoldSuccess<T> value)? goldSuccess,
+    TResult Function(GoldFailure<T> value)? goldFailure,
+    TResult Function(CompaniesLoading<T> value)? companiesLoading,
+    TResult Function(CompaniesSuccess<T> value)? companiesSuccess,
+    TResult Function(CompaniesFailure<T> value)? companiesFailure,
+    TResult Function(IngotsAndCoinsLoading<T> value)? ingotsAndCoinsLoading,
+    TResult Function(IngotsAndCoinsSuccess<T> value)? ingotsAndCoinsSuccess,
+    TResult Function(IngotsAndCoinsFailure<T> value)? ingotsAndCoinsFailure,
+    required TResult orElse(),
+  }) {
+    if (ingotsAndCoinsFailure != null) {
+      return ingotsAndCoinsFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class IngotsAndCoinsFailure<T> implements GoldState<T> {
+  const factory IngotsAndCoinsFailure(final String errorMessage) =
+      _$IngotsAndCoinsFailureImpl<T>;
+
+  String get errorMessage;
+
+  /// Create a copy of GoldState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$IngotsAndCoinsFailureImplCopyWith<T, _$IngotsAndCoinsFailureImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }

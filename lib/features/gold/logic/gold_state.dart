@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'gold_state.freezed.dart';
 
 @freezed
@@ -15,5 +16,13 @@ class GoldState<T> with _$GoldState<T> {
 
   const factory GoldState.companiesSuccess(T companiesData) = CompaniesSuccess;
 
-  const factory GoldState.companiesFailure(String errorMessage) = CompaniesFailure;
+  const factory GoldState.companiesFailure(String errorMessage) =
+      CompaniesFailure;
+
+  const factory GoldState.ingotsAndCoinsLoading() = IngotsAndCoinsLoading;
+
+  const factory GoldState.ingotsAndCoinsSuccess(T ingotsAndCoinsData) = IngotsAndCoinsSuccess;
+
+  const factory GoldState.ingotsAndCoinsFailure(String errorMessage) =
+  IngotsAndCoinsFailure;
 }

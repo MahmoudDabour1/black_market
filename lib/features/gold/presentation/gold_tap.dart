@@ -6,11 +6,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../logic/gold_state.dart';
 
-class GoldTap extends StatelessWidget {
+class GoldTap extends StatefulWidget {
   const GoldTap({super.key});
 
   @override
+  State<GoldTap> createState() => _GoldTapState();
+}
+
+class _GoldTapState extends State<GoldTap> with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     return BlocBuilder<GoldCubit, GoldState>(
       buildWhen: (previous, current) {
         return current is GoldLoading ||
