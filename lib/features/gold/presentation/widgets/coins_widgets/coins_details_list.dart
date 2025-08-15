@@ -1,5 +1,3 @@
-import 'package:black_market/features/gold/data/models/ingots_and_coins_response_model.dart';
-import 'package:black_market/features/gold/logic/gold_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,26 +6,27 @@ import '../../../../../core/theming/app_colors.dart';
 import '../../../../../core/theming/app_string.dart';
 import '../../../../../core/theming/app_styles.dart';
 import '../../../../../core/theming/font_weight_helper.dart';
+import '../../../data/models/ingots_and_coins_response_model.dart';
+import '../../../logic/gold_cubit.dart';
 import '../../../logic/gold_state.dart';
-import 'ingots_details_row.dart';
+import '../ingots_widgets/ingots_details_row.dart';
 
-class IngotsDetailsList extends StatelessWidget {
-  const IngotsDetailsList({super.key});
+class CoinsDetailsList extends StatelessWidget {
+  const CoinsDetailsList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GoldCubit, GoldState>(
+    return  BlocBuilder<GoldCubit, GoldState>(
       builder: (context, state) {
         return state.maybeWhen(
             ingotsAndCoinsLoading: () => CircularProgressIndicator(),
             ingotsAndCoinsSuccess: (data,coinsData) =>
-                setupSuccess(data),
+                setupSuccess(coinsData),
             ingotsAndCoinsFailure: (error) => setupError(error),
             orElse: () => SizedBox.shrink());
       },
     );
   }
-
   Center setupError(String error) {
     return Center(
       child: Text(
@@ -113,5 +112,4 @@ class IngotsDetailsList extends StatelessWidget {
       },
     );
   }
-
 }
