@@ -56,5 +56,17 @@ class AppString {
   static const settings = "الاعدادات";
   static const selectMainCoin = "حدد العملة الأساسية";
   static const importantNotes = "تنويه هام";
+  static const language = "اللغة";
+  static const notificationSettings= "إعدادات الإشعارات";
+  static const notification= "الإشعارات";
+  static const arrangeCoins= "الترتيب المفضل للعملات";
+  static const selectArrangeCoins= "إختر الترتيب المفضل للعملات";
+  static const arrangeBanks= "الترتيب المفضل للبنوك";
+  static const selectArrangeBanks= "إختر الترتيب المفضل للبنوك";
+  static const update= "تعديل";
+  static const longPress= "أضغط مطولا على أى بنك لتغيير ترتيبه يمكنك تعديل هذه القائمة لاحق";
+  static const selectLanguage= "حدد اللغة الأساسية";
+  static const arabic= "العربية";
+  static const news= "الأخبار";
 
 }

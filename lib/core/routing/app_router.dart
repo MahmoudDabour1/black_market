@@ -10,6 +10,9 @@ import '../../features/auth/presentation/login/login_screen.dart';
 import '../../features/auth/presentation/register/register_screen.dart';
 import '../../features/profile/presentation/main_currencies_screen.dart';
 import '../../features/profile/presentation/profile_screen.dart';
+import '../../features/settings/presentation/language_screen.dart';
+import '../../features/settings/presentation/notifications_screen.dart';
+import '../../features/settings/presentation/settings_screen.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
@@ -63,9 +66,25 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => MainCurrenciesScreen(),
           settings: settings,
-        ); case Routes.aboutAppScreen:
+        );
+      case Routes.aboutAppScreen:
         return MaterialPageRoute(
           builder: (_) => AboutAppScreen(),
+          settings: settings,
+        );
+      case Routes.settingsScreen:
+        return MaterialPageRoute(
+          builder: (_) => SettingsScreen(),
+          settings: settings,
+        );
+      case Routes.languageScreen:
+        return MaterialPageRoute(
+          builder: (_) => LanguageScreen(),
+          settings: settings,
+        );
+      case Routes.notificationsScreen:
+        return MaterialPageRoute(
+          builder: (_) => NotificationsScreen(),
           settings: settings,
         );
     }

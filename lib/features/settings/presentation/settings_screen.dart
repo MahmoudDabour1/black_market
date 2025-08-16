@@ -4,53 +4,45 @@ import 'package:black_market/core/theming/app_assets.dart';
 import 'package:black_market/core/theming/app_string.dart';
 import 'package:black_market/core/utils/spacing.dart';
 import 'package:black_market/core/widgets/app_custom_app_bar.dart';
-import 'package:black_market/features/profile/presentation/widgets/profile_auth_buttons.dart';
 import 'package:black_market/features/profile/presentation/widgets/profile_container_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppCustomAppBar(
-        title: AppString.profile,
-        showBackButton: false,
-      ),
+      appBar: AppCustomAppBar(title: AppString.settings),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 8.w),
         child: Column(
           children: [
-            verticalSpace(32),
-            ProfileAuthButtons(),
             verticalSpace(64),
             ProfileContainerItem(
-              title: AppString.shareApp,
+              title: AppString.arrangeBanks,
+              icon: AppAssets.bankIcon,
               onTap: () {},
-              icon: AppAssets.globalIcon,
             ),
             ProfileContainerItem(
-              title: AppString.aboutApp,
-              onTap: () {
-                context.pushNamed(Routes.aboutAppScreen);
-              },
-              icon: AppAssets.infoIcon,
-            ),
-            ProfileContainerItem(
-              title: AppString.mainCoin,
-              onTap: () {
-                context.pushNamed(Routes.mainCurrenciesScreen);
-              },
+              title: AppString.arrangeCoins,
               icon: AppAssets.dollarIcon,
+              onTap: () {},
             ),
             ProfileContainerItem(
-              title: AppString.settings,
+              title: AppString.language,
+              icon: AppAssets.globalIcon,
               onTap: () {
-                context.pushNamed(Routes.settingsScreen);
+                context.pushNamed(Routes.languageScreen);
               },
-              icon: AppAssets.settingIcon,
+            ),
+            ProfileContainerItem(
+              title: AppString.notificationSettings,
+              icon: AppAssets.infoIcon,
+              onTap: () {
+                context.pushNamed(Routes.notificationsScreen);
+              },
             ),
           ],
         ),

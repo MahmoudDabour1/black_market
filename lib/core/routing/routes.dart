@@ -9,6 +9,9 @@ abstract class Routes{
   static const String profileScreen = '/ProfileScreen';
   static const String mainCurrenciesScreen = '/MainCurrenciesScreen';
   static const String aboutAppScreen = '/AboutAppScreen';
+  static const String settingsScreen = '/SettingsScreen';
+  static const String languageScreen = '/LanguageScreen';
+  static const String notificationsScreen = '/NotificationsScreen';
 
 
 }

@@ -12,4 +12,5 @@ abstract class AppAssets {
   static const String infoIcon = 'assets/icons/Info.png';
   static const String dollarIcon = 'assets/icons/dollar.png';
   static const String settingIcon = 'assets/icons/Setting.png';
+  static const String bankIcon = 'assets/icons/bank.png';
 }
