@@ -28,7 +28,9 @@ class SettingsScreen extends StatelessWidget {
             ProfileContainerItem(
               title: AppString.arrangeCoins,
               icon: AppAssets.dollarIcon,
-              onTap: () {},
+              onTap: () {
+                context.pushNamed(Routes.arrangeCoinsScreen);
+              },
             ),
             ProfileContainerItem(
               title: AppString.language,

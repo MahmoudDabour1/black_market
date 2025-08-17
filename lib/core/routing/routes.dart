@@ -12,6 +12,7 @@ abstract class Routes{
   static const String settingsScreen = '/SettingsScreen';
   static const String languageScreen = '/LanguageScreen';
   static const String notificationsScreen = '/NotificationsScreen';
+  static const String arrangeCoinsScreen = '/ArrangeCoinsScreen';
 
 
 }

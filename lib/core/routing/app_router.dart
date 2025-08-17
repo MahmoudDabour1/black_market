@@ -10,6 +10,7 @@ import '../../features/auth/presentation/login/login_screen.dart';
 import '../../features/auth/presentation/register/register_screen.dart';
 import '../../features/profile/presentation/main_currencies_screen.dart';
 import '../../features/profile/presentation/profile_screen.dart';
+import '../../features/settings/presentation/arrange_coins_screen.dart';
 import '../../features/settings/presentation/language_screen.dart';
 import '../../features/settings/presentation/notifications_screen.dart';
 import '../../features/settings/presentation/settings_screen.dart';
@@ -85,6 +86,10 @@ class AppRouter {
       case Routes.notificationsScreen:
         return MaterialPageRoute(
           builder: (_) => NotificationsScreen(),
+          settings: settings,
+        ); case Routes.arrangeCoinsScreen:
+        return MaterialPageRoute(
+          builder: (_) => ArrangeCoinsScreen(),
           settings: settings,
         );
     }

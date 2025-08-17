@@ -15,4 +15,5 @@ abstract class AppAssets {
   static const String bankIcon = 'assets/icons/bank.png';
   static const String redCloseIcon = 'assets/icons/red_close.png';
   static const String logoutIcon = 'assets/icons/Logout.png';
+  static const String dragIcon = 'assets/icons/drag.png';
 }
