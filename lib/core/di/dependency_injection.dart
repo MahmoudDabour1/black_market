@@ -7,7 +7,6 @@ import 'package:black_market/features/gold/data/repos/gold_repos.dart';
 import 'package:black_market/features/gold/logic/gold_cubit.dart';
 import 'package:black_market/features/profile/data/data_source/profile_local_data_source.dart';
 import 'package:black_market/features/profile/data/data_source/profile_remote_data_source.dart';
-import 'package:black_market/features/profile/data/models/countries_response_model.dart';
 import 'package:black_market/features/profile/data/repos/profile_repos.dart';
 import 'package:black_market/features/profile/logic/profile_cubit.dart';
 import 'package:dio/dio.dart';
@@ -38,11 +37,11 @@ Future<void> setupGetIt() async {
 
   sl.registerLazySingleton<ProfileRemoteDataSource>(
       () => ProfileRemoteDataSource(dio));
-  sl.registerLazySingleton<ProfileLocalDataSource>(()=>ProfileLocalDataSourceImpl(countriesBox));
+  sl.registerLazySingleton<ProfileLocalDataSource>(
+      () => ProfileLocalDataSourceImpl(countriesBox));
 
   sl.registerLazySingleton<ProfileRepos>(() => ProfileReposImpl(sl(), sl()));
   sl.registerFactory<ProfileCubit>(() => ProfileCubit(sl()));
 
   sl.registerLazySingleton<Box<List>>(() => countriesBox);
-
 }

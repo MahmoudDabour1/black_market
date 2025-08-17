@@ -9,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 
 import '../../../core/utils/app_constants.dart';
-import '../data/models/countries_response_model.dart';
 
 class MainCurrenciesScreen extends StatefulWidget {
   const MainCurrenciesScreen({super.key});
@@ -29,7 +28,7 @@ class _MainCurrenciesScreenState extends State<MainCurrenciesScreen>
   Future<void> _loadCountriesData() async {
     try {
       var countriesBox =
-      await Hive.openBox<List>(kCountriesBox); // use List type
+          await Hive.openBox<List>(kCountriesBox); // use List type
       var countriesData = countriesBox.get(kCountriesData);
 
       if (countriesData == null) {

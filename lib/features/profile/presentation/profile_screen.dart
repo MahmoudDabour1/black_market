@@ -7,16 +7,13 @@ import 'package:black_market/core/theming/app_colors.dart';
 import 'package:black_market/core/theming/app_string.dart';
 import 'package:black_market/core/theming/app_styles.dart';
 import 'package:black_market/core/theming/font_weight_helper.dart';
-import 'package:black_market/core/utils/app_constants.dart';
 import 'package:black_market/core/utils/spacing.dart';
 import 'package:black_market/core/widgets/app_custom_app_bar.dart';
 import 'package:black_market/core/widgets/app_custom_button.dart';
-import 'package:black_market/features/profile/data/models/countries_response_model.dart';
 import 'package:black_market/features/profile/presentation/widgets/profile_auth_buttons.dart';
 import 'package:black_market/features/profile/presentation/widgets/profile_container_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hive/hive.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
