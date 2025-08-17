@@ -3,6 +3,117 @@
 part of 'login_response_model.dart';
 
 // **************************************************************************
+// TypeAdapterGenerator
+// **************************************************************************
+
+class LoginResponseModelAdapter extends TypeAdapter<LoginResponseModel> {
+  @override
+  final int typeId = 2;
+
+  @override
+  LoginResponseModel read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return LoginResponseModel(
+      user: fields[0] as User?,
+      accessToken: fields[1] as String?,
+      expiresAt: fields[2] as DateTime?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, LoginResponseModel obj) {
+    writer
+      ..writeByte(3)
+      ..writeByte(0)
+      ..write(obj.user)
+      ..writeByte(1)
+      ..write(obj.accessToken)
+      ..writeByte(2)
+      ..write(obj.expiresAt);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is LoginResponseModelAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+class UserAdapter extends TypeAdapter<User> {
+  @override
+  final int typeId = 3;
+
+  @override
+  User read(BinaryReader reader) {
+    final numOfFields = reader.readByte();
+    final fields = <int, dynamic>{
+      for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
+    };
+    return User(
+      id: fields[0] as int?,
+      roleId: fields[1] as int?,
+      name: fields[2] as String?,
+      email: fields[3] as String?,
+      avatar: fields[4] as String?,
+      emailVerifiedAt: fields[5] as dynamic,
+      token: fields[6] as dynamic,
+      provider: fields[7] as dynamic,
+      settings: (fields[8] as List?)?.cast<dynamic>(),
+      otp: fields[9] as dynamic,
+      createdAt: fields[10] as DateTime?,
+      updatedAt: fields[11] as DateTime?,
+    );
+  }
+
+  @override
+  void write(BinaryWriter writer, User obj) {
+    writer
+      ..writeByte(12)
+      ..writeByte(0)
+      ..write(obj.id)
+      ..writeByte(1)
+      ..write(obj.roleId)
+      ..writeByte(2)
+      ..write(obj.name)
+      ..writeByte(3)
+      ..write(obj.email)
+      ..writeByte(4)
+      ..write(obj.avatar)
+      ..writeByte(5)
+      ..write(obj.emailVerifiedAt)
+      ..writeByte(6)
+      ..write(obj.token)
+      ..writeByte(7)
+      ..write(obj.provider)
+      ..writeByte(8)
+      ..write(obj.settings)
+      ..writeByte(9)
+      ..write(obj.otp)
+      ..writeByte(10)
+      ..write(obj.createdAt)
+      ..writeByte(11)
+      ..write(obj.updatedAt);
+  }
+
+  @override
+  int get hashCode => typeId.hashCode;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is UserAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
+}
+
+// **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 

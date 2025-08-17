@@ -27,7 +27,7 @@ class LoginButtons extends StatelessWidget {
               isLoading: state is LoginLoading,
               onPressed: () {
                 if (formKey.currentState!.validate()) {
-                  cubit.login();
+                  cubit.login(context);
                 }
               },
               textButton: AppString.login,

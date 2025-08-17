@@ -69,5 +69,7 @@ class AppString {
   static const arabic= "العربية";
   static const news= "الأخبار";
   static const logout= "تسجيل الخروج";
+  static const doYouWantToLogout = "هل أنت متأكد من تسجيل الخروج";
+  static const logoutSuccess = "تم تسجيل الخروج بنجاح";
 
 }

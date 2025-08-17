@@ -1,5 +1,7 @@
 import 'package:black_market/core/utils/app_constants.dart';
+import 'package:black_market/features/auth/data/data_source/auth_local_data_source.dart';
 import 'package:black_market/features/auth/data/data_source/auth_remote_data_source.dart';
+import 'package:black_market/features/auth/data/models/login_response_model.dart';
 import 'package:black_market/features/auth/data/repos/auth_repos.dart';
 import 'package:black_market/features/auth/logic/auth_cubit.dart';
 import 'package:black_market/features/gold/data/data_source/gold_remote_data_source.dart';
@@ -26,9 +28,13 @@ Future<void> setupGetIt() async {
 //auth
   sl.registerLazySingleton<AuthRemoteDataSource>(
       () => AuthRemoteDataSource(dio));
-  sl.registerLazySingleton<AuthRepos>(
-      () => AuthReposImpl(authRemoteDataSource: sl()));
+  sl.registerLazySingleton<AuthLocalDataSource>(
+      () => AuthLocalDataSourceImpl());
+  sl.registerLazySingleton<AuthRepos>(() =>
+      AuthReposImpl(authRemoteDataSource: sl(), authLocalDataSource: sl()));
   sl.registerFactory<AuthCubit>(() => AuthCubit(sl()));
+  // sl.registerLazySingleton<Box<LoginResponseModel>>(
+  //     () => Hive.box<LoginResponseModel>(kUserBox));
 
   sl.registerLazySingleton<GoldRemoteDataSource>(
       () => GoldRemoteDataSource(dio));

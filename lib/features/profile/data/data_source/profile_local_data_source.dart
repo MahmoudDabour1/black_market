@@ -12,10 +12,8 @@ abstract class ProfileLocalDataSource {
 
 class ProfileLocalDataSourceImpl implements ProfileLocalDataSource {
   final Box<List> countriesBox;
-  ProfileLocalDataSourceImpl(this.countriesBox);
 
-  // Box<CountriesResponseModel> countriesBox =
-  //     Hive.box<CountriesResponseModel>(kCountriesBox);
+  ProfileLocalDataSourceImpl(this.countriesBox);
 
   @override
   Future<void> cachedCountriesData(
@@ -25,7 +23,7 @@ class ProfileLocalDataSourceImpl implements ProfileLocalDataSource {
 
   @override
   List<CountriesResponseModel>? getCountriesData() {
-    final data = countriesBox.get('countries');
+    final data = countriesBox.get(kCountriesData);
     if (data == null) return null;
     return data.cast<CountriesResponseModel>();
   }

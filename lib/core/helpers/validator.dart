@@ -38,10 +38,11 @@ abstract class Validator {
       return '* كلمة المرور مطلوبة';
     } else if (value.length < 7) {
       return '* يجب أن تكون كلمة المرور على الأقل 7 أحرف';
-    } else if (!RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{7,}$')
-        .hasMatch(value)) {
-      return '* يجب أن تحتوي كلمة المرور على حرف كبير وحرف صغير ورقم';
     }
+    // else if (!RegExp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{7,}$')
+    //     .hasMatch(value)) {
+    //   return '* يجب أن تحتوي كلمة المرور على حرف كبير وحرف صغير ورقم';
+    // }
     else if (value.contains(' ')) {
       return '* كلمة المرور لا يمكن أن تحتوي على مسافات';
     }
