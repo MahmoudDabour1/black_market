@@ -68,5 +68,6 @@ class AppString {
   static const selectLanguage= "حدد اللغة الأساسية";
   static const arabic= "العربية";
   static const news= "الأخبار";
+  static const logout= "تسجيل الخروج";
 
 }

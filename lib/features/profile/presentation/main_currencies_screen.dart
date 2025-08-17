@@ -6,6 +6,10 @@ import 'package:black_market/features/profile/logic/profile_cubit.dart';
 import 'package:black_market/features/profile/presentation/widgets/countries_bloc_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
+
+import '../../../core/utils/app_constants.dart';
+import '../data/models/countries_response_model.dart';
 
 class MainCurrenciesScreen extends StatefulWidget {
   const MainCurrenciesScreen({super.key});
@@ -19,7 +23,21 @@ class _MainCurrenciesScreenState extends State<MainCurrenciesScreen>
   @override
   void initState() {
     super.initState();
-    context.read<ProfileCubit>().getCountries();
+    _loadCountriesData();
+  }
+
+  Future<void> _loadCountriesData() async {
+    try {
+      var countriesBox =
+      await Hive.openBox<List>(kCountriesBox); // use List type
+      var countriesData = countriesBox.get(kCountriesData);
+
+      if (countriesData == null) {
+        context.read<ProfileCubit>().getCountries();
+      }
+    } catch (e) {
+      print("Error loading countries data: $e");
+    }
   }
 
   @override

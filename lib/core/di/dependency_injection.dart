@@ -1,10 +1,13 @@
+import 'package:black_market/core/utils/app_constants.dart';
 import 'package:black_market/features/auth/data/data_source/auth_remote_data_source.dart';
 import 'package:black_market/features/auth/data/repos/auth_repos.dart';
 import 'package:black_market/features/auth/logic/auth_cubit.dart';
 import 'package:black_market/features/gold/data/data_source/gold_remote_data_source.dart';
 import 'package:black_market/features/gold/data/repos/gold_repos.dart';
 import 'package:black_market/features/gold/logic/gold_cubit.dart';
+import 'package:black_market/features/profile/data/data_source/profile_local_data_source.dart';
 import 'package:black_market/features/profile/data/data_source/profile_remote_data_source.dart';
+import 'package:black_market/features/profile/data/models/countries_response_model.dart';
 import 'package:black_market/features/profile/data/repos/profile_repos.dart';
 import 'package:black_market/features/profile/logic/profile_cubit.dart';
 import 'package:dio/dio.dart';
@@ -19,6 +22,7 @@ Future<void> setupGetIt() async {
   await Hive.initFlutter();
 
   Dio dio = DioFactory.getDio();
+  final countriesBox = await Hive.openBox<List>(kCountriesBox);
 
 //auth
   sl.registerLazySingleton<AuthRemoteDataSource>(
@@ -34,6 +38,11 @@ Future<void> setupGetIt() async {
 
   sl.registerLazySingleton<ProfileRemoteDataSource>(
       () => ProfileRemoteDataSource(dio));
-  sl.registerLazySingleton<ProfileRepos>(() => ProfileReposImpl(sl()));
+  sl.registerLazySingleton<ProfileLocalDataSource>(()=>ProfileLocalDataSourceImpl(countriesBox));
+
+  sl.registerLazySingleton<ProfileRepos>(() => ProfileReposImpl(sl(), sl()));
   sl.registerFactory<ProfileCubit>(() => ProfileCubit(sl()));
+
+  sl.registerLazySingleton<Box<List>>(() => countriesBox);
+
 }

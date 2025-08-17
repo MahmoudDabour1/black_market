@@ -1,3 +1,3 @@
 
-const String kAppInitData = 'AppInitData';
-const String kAppInitBox = 'AppInitBox';
+const String kCountriesBox = 'CountriesBox';
+const String kCountriesData = 'CountriesData';
