@@ -91,6 +91,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 onPress: () async {
                   var authBox = Hive.box<LoginResponseModel>(kUserBox);
                   await authBox.clear();
+                  await SharedPrefHelper.removeData(SharedPrefKeys.userToken);
+                  await SharedPrefHelper.removeSecuredString(
+                      SharedPrefKeys.userToken);
 
                   setState(() {
                     isLogin = false;

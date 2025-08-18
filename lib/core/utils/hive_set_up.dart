@@ -1,5 +1,6 @@
 import 'package:black_market/core/utils/app_constants.dart';
 import 'package:black_market/features/auth/data/models/login_response_model.dart';
+import 'package:black_market/features/profile/data/models/about_app_response_model.dart';
 import 'package:black_market/features/profile/data/models/countries_response_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -8,6 +9,7 @@ Future<void> initHive() async {
   _registerHiveAdapters();
   await Hive.openBox<List>(kCountriesBox);
   await Hive.openBox<LoginResponseModel>(kUserBox);
+  await Hive.openBox<AboutAppResponseModel>(kAboutAppBox);
 }
 
 void _registerHiveAdapters() {
@@ -22,5 +24,8 @@ void _registerHiveAdapters() {
   }
   if (!Hive.isAdapterRegistered(3)) {
     Hive.registerAdapter(UserAdapter());
+  }
+  if (!Hive.isAdapterRegistered(4)) {
+    Hive.registerAdapter(AboutAppResponseModelAdapter());
   }
 }

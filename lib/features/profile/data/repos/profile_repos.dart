@@ -1,5 +1,4 @@
 import 'package:black_market/core/networking/api_result.dart';
-import 'package:black_market/core/routing/router_observer.dart';
 import 'package:black_market/features/profile/data/data_source/profile_local_data_source.dart';
 import 'package:black_market/features/profile/data/models/about_app_response_model.dart';
 import 'package:black_market/features/profile/data/models/countries_response_model.dart';
@@ -30,7 +29,6 @@ class ProfileReposImpl implements ProfileRepos {
       if (cachedData != null) {
         return ApiResult.success(cachedData);
       }
-      logger.e(e);
       return ApiResult.failure(ApiErrorHandler.handle(e));
     }
   }
@@ -39,9 +37,13 @@ class ProfileReposImpl implements ProfileRepos {
   Future<ApiResult<AboutAppResponseModel>> getAboutApp() async {
     try {
       final response = await profileRemoteDataSource.getAboutApp();
+      await profileLocalDataSource.cachedAboutAppData(response);
       return ApiResult.success(response);
     } catch (e) {
-      logger.e(e);
+      final cachedData = profileLocalDataSource.getAboutAppData();
+      if (cachedData != null) {
+        return ApiResult.success(cachedData);
+      }
       return ApiResult.failure(ApiErrorHandler.handle(e));
     }
   }
