@@ -7,4 +7,13 @@ abstract class AppAssets {
   static const String yellowCalculatorIcon = 'assets/icons/yellow_calculator.png';
   static const String shareIcon = 'assets/icons/basil_share-outline.png';
   static const String arrowDownIcon = 'assets/icons/arrow_down.png';
+  static const String arrowRightIcon = 'assets/icons/ArrowRight.png';
+  static const String globalIcon = 'assets/icons/global.png';
+  static const String infoIcon = 'assets/icons/Info.png';
+  static const String dollarIcon = 'assets/icons/dollar.png';
+  static const String settingIcon = 'assets/icons/Setting.png';
+  static const String bankIcon = 'assets/icons/bank.png';
+  static const String redCloseIcon = 'assets/icons/red_close.png';
+  static const String logoutIcon = 'assets/icons/Logout.png';
+  static const String dragIcon = 'assets/icons/drag.png';
 }

@@ -20,7 +20,7 @@ class IngotsDetailsList extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
             ingotsAndCoinsLoading: () => CircularProgressIndicator(),
-            ingotsAndCoinsSuccess: (data) =>
+            ingotsAndCoinsSuccess: (data,coinsData) =>
                 setupSuccess(data),
             ingotsAndCoinsFailure: (error) => setupError(error),
             orElse: () => SizedBox.shrink());

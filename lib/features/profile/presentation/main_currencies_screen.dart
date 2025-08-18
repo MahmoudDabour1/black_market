@@ -1,0 +1,64 @@
+import 'package:black_market/core/theming/app_string.dart';
+import 'package:black_market/core/theming/app_styles.dart';
+import 'package:black_market/core/utils/spacing.dart';
+import 'package:black_market/core/widgets/app_custom_app_bar.dart';
+import 'package:black_market/features/profile/logic/profile_cubit.dart';
+import 'package:black_market/features/profile/presentation/widgets/countries_bloc_builder.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
+
+import '../../../core/utils/app_constants.dart';
+
+class MainCurrenciesScreen extends StatefulWidget {
+  const MainCurrenciesScreen({super.key});
+
+  @override
+  State<MainCurrenciesScreen> createState() => _MainCurrenciesScreenState();
+}
+
+class _MainCurrenciesScreenState extends State<MainCurrenciesScreen>
+    with AutomaticKeepAliveClientMixin<MainCurrenciesScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _loadCountriesData();
+  }
+
+  Future<void> _loadCountriesData() async {
+    try {
+      var countriesBox =
+          await Hive.openBox<List>(kCountriesBox); // use List type
+      var countriesData = countriesBox.get(kCountriesData);
+
+      if (countriesData == null) {
+        context.read<ProfileCubit>().getCountries();
+      }
+    } catch (e) {
+      print("Error loading countries data: $e");
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    super.build(context);
+    return Scaffold(
+      appBar: AppCustomAppBar(title: AppString.mainCoin),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          verticalSpace(16),
+          Text(
+            AppString.selectMainCoin,
+            style: AppStyles.font18WhiteSemiBold,
+          ),
+          verticalSpace(32),
+          CountriesBlocBuilder()
+        ],
+      ),
+    );
+  }
+
+  @override
+  bool get wantKeepAlive => true;
+}

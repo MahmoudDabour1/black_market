@@ -1,3 +1,4 @@
+import 'package:black_market/features/profile/logic/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -25,6 +26,7 @@ class BlackMarket extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => AuthCubit(sl())),
+        BlocProvider(create: (_) => ProfileCubit(sl())),
       ],
       child: ScreenUtilInit(
         designSize: const Size(375, 812),
@@ -51,7 +53,7 @@ class BlackMarket extends StatelessWidget {
           onGenerateRoute: appRouter.generateRoute,
           debugShowCheckedModeBanner: false,
           navigatorObservers: [NavigatorObserver(), routeObserver],
-          initialRoute: Routes.goldScreen,
+          initialRoute: Routes.profileScreen,
         ),
       ),
     );

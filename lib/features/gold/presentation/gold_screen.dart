@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/di/dependency_injection.dart';
+import 'coins_tap.dart';
 import 'gold_tap.dart';
 import 'ingots_tap.dart';
 
@@ -59,7 +60,7 @@ class GoldScreen extends StatelessWidget {
             children: [
               GoldTap(),
               IngotsTap(),
-              Center(child: Text("Third tab content")),
+              CoinsTap(),
             ],
           ),
         ),

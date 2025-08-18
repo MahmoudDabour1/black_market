@@ -18,13 +18,13 @@ class AuthCubit extends Cubit<AuthState> {
 
   AuthCubit(this.authRepos) : super(AuthState.initial());
 
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final emailController = TextEditingController(text: "jshshsh@jsjdjd.djsjjs");
+  final passwordController = TextEditingController(text: "aaa123+-*A");
   final nameController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
   //login
-  Future<void> login() async {
+  Future<void> login(BuildContext context) async {
     emit(AuthState.loginLoading());
     final response = await authRepos.login(
       LoginRequestModel(
@@ -37,6 +37,7 @@ class AuthCubit extends Cubit<AuthState> {
       await saveUserToken(data.accessToken ?? "");
       emailController.clear();
       passwordController.clear();
+      context.pushNamed(Routes.profileScreen);
       showToast(message: "Login successful", isError: false);
     }, failure: (error) {
       emit(AuthState.loginError(error.toString()));

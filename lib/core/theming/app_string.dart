@@ -50,5 +50,26 @@ class AppString {
   static const returnPrice = "مبلغ الاستيراد";
   static const different = "الفرق";
   static const pound = "ج.م";
+  static const shareApp = "مشاركة التطبيق";
+  static const aboutApp = "عن التطبيق";
+  static const mainCoin = "العملة الاساسية";
+  static const settings = "الاعدادات";
+  static const selectMainCoin = "حدد العملة الأساسية";
+  static const importantNotes = "تنويه هام";
+  static const language = "اللغة";
+  static const notificationSettings= "إعدادات الإشعارات";
+  static const notification= "الإشعارات";
+  static const arrangeCoins= "الترتيب المفضل للعملات";
+  static const selectArrangeCoins= "إختر الترتيب المفضل للعملات";
+  static const arrangeBanks= "الترتيب المفضل للبنوك";
+  static const selectArrangeBanks= "إختر الترتيب المفضل للبنوك";
+  static const update= "تعديل";
+  static const longPress= "أضغط مطولا على أى بنك لتغيير ترتيبه يمكنك تعديل هذه القائمة لاحق";
+  static const selectLanguage= "حدد اللغة الأساسية";
+  static const arabic= "العربية";
+  static const news= "الأخبار";
+  static const logout= "تسجيل الخروج";
+  static const doYouWantToLogout = "هل أنت متأكد من تسجيل الخروج";
+  static const logoutSuccess = "تم تسجيل الخروج بنجاح";
 
 }

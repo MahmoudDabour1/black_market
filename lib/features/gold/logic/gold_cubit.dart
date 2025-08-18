@@ -13,6 +13,7 @@ class GoldCubit extends Cubit<GoldState> {
 
   List<CompaniesResponseModel> companies = [];
   List<Coin> ingots = [];
+  List<Coin> coins = [];
   CompaniesResponseModel? selectedCompany;
 
   Future<void> fetchGoldPrices() async {
@@ -51,7 +52,8 @@ class GoldCubit extends Cubit<GoldState> {
     response.when(
       success: (data) {
         ingots = data.ingots ?? [];
-        emit(GoldState.ingotsAndCoinsSuccess(ingots));
+        coins = data.coins ?? [];
+        emit(GoldState.ingotsAndCoinsSuccess(ingots: ingots,coins: coins));
       },
       failure: (error) {
         logger.w(error.toString());
@@ -62,19 +64,34 @@ class GoldCubit extends Cubit<GoldState> {
 
   void selectCompany(CompaniesResponseModel company) {
     selectedCompany = company;
-    final filteredIngots = ingots.map((ingot) {
-      return ingot.copyWith(
-        companiesData: ingot.companiesData
-            ?.where((cd) => cd.companyId == company.id)
-            .toList(),
-      );
-    }).where((ingot) => ingot.companiesData?.isNotEmpty ?? false).toList();
+    final filteredIngots = ingots
+        .map((ingot) {
+          return ingot.copyWith(
+            companiesData: ingot.companiesData
+                ?.where((cd) => cd.companyId == company.id)
+                .toList(),
+          );
+        })
+        .where((ingot) => ingot.companiesData?.isNotEmpty ?? false)
+        .toList();
+    final filteredCoins = coins
+        .map((coin) {
+          return coin.copyWith(
+            companiesData: coin.companiesData
+                ?.where((cd) => cd.companyId == company.id)
+                .toList(),
+          );
+        })
+        .where((coin) => coin.companiesData?.isNotEmpty ?? false)
+        .toList();
 
-    emit(GoldState.ingotsAndCoinsSuccess(filteredIngots));
+    emit(GoldState.ingotsAndCoinsSuccess(
+      ingots: filteredIngots,
+      coins: filteredCoins,
+    ));
   }
-
-
 }
+
 extension CoinCopyWith on Coin {
   Coin copyWith({
     int? id,
