@@ -8,6 +8,7 @@ import '../../features/auth/presentation/forget_password/forget_password_screen.
 import '../../features/auth/presentation/forget_password/otp_screen.dart';
 import '../../features/auth/presentation/login/login_screen.dart';
 import '../../features/auth/presentation/register/register_screen.dart';
+import '../../features/home/presentation/home_screen.dart';
 import '../../features/profile/presentation/main_currencies_screen.dart';
 import '../../features/profile/presentation/profile_screen.dart';
 import '../../features/settings/presentation/arrange_coins_screen.dart';
@@ -87,9 +88,15 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => NotificationsScreen(),
           settings: settings,
-        ); case Routes.arrangeCoinsScreen:
+        );
+      case Routes.arrangeCoinsScreen:
         return MaterialPageRoute(
           builder: (_) => ArrangeCoinsScreen(),
+          settings: settings,
+        );
+      case Routes.homeScreen:
+        return MaterialPageRoute(
+          builder: (_) => HomeScreen(),
           settings: settings,
         );
     }

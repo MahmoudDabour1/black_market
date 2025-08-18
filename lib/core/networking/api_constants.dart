@@ -10,6 +10,7 @@ class ApiConstants {
   static const String ingotsAndCoinsEP = "/ingots-coins";
   static const String countriesEP = "currencies/latest";
   static const String settingsEP = "/settings/banners.home_global_banner,banners.home_global_yellow_banner,banners.banks_global_banner,banners.banks_global_yellow_banner,banners.above_banks_card,banners.above_banks_card_yellow,app.enable_rate_dialog,app.about_text,app.dealing_caution,ads.display_views_counter,app.min_android_version";
+  static const String banksEP = "banks";
 }
 
 class ApiErrors {
