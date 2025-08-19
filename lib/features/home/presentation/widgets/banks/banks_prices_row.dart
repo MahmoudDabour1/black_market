@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/theming/app_colors.dart';
 import '../../../../../core/theming/app_string.dart';
+import '../../../../../core/widgets/app_custom_vertical_divider.dart';
 import '../../../../gold/presentation/widgets/gold_widgets/gold_buy_and_sale_column.dart';
 
 class BanksPricesRow extends StatelessWidget {
@@ -17,14 +18,7 @@ class BanksPricesRow extends StatelessWidget {
           title: AppString.buy,
           price: "50",
         ),
-        SizedBox(
-          height: 30.h,
-          child: VerticalDivider(
-            color: AppColors.whiteColor,
-            thickness: 1.3,
-            width: 1.3,
-          ),
-        ),
+        AppCustomVerticalDivider(),
         GoldBuyAndSaleColumn(
           title: AppString.sell,
           price: "50",

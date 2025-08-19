@@ -30,7 +30,7 @@ class AppString {
   static const hello = "مرحباً";
   static const name = "محمود دبور";
   static const blackMarket = "Black Market";
-  static const bekam = "بكام في السوق السوداء؟!";
+  static const howMuch = "بكام في السوق السوداء؟!";
   static const bankPrice = "سعر البنك";
   static const lastUpdate = "آخر تحديث";
   static const souqSouda = "السوق السوداء";
