@@ -28,6 +28,7 @@ Future<void> setupGetIt() async {
   Dio dio = DioFactory.getDio();
   final countriesBox = await Hive.openBox<List>(kCountriesBox);
   final banksBox = await Hive.openBox<List>(kBanksBox);
+  final currenciesBox = await Hive.openBox<List>(kCurrenciesBox);
 
 //auth
   sl.registerLazySingleton<AuthRemoteDataSource>(
@@ -58,7 +59,7 @@ Future<void> setupGetIt() async {
   sl.registerLazySingleton<HomeRemoteDataSource>(
       () => HomeRemoteDataSource(dio));
   sl.registerLazySingleton<HomeLocalDataSource>(
-      () => HomeLocalDataSourceImpl(countriesBox));
+      () => HomeLocalDataSourceImpl(countriesBox,currenciesBox));
 
   sl.registerLazySingleton<HomeRepos>(() =>
       HomeRepoImpl(homeLocalDataSource: sl(), homeRemoteDataSource: sl()));

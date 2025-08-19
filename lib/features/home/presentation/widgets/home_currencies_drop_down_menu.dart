@@ -8,12 +8,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
 
-import '../../../../../core/theming/app_colors.dart';
-import '../../../../../core/utils/app_constants.dart';
-import '../../../../../core/widgets/app_custom_vertical_divider.dart';
-import '../../../../profile/data/models/countries_response_model.dart';
-import '../../../../profile/logic/profile_cubit.dart';
-import '../../../../profile/logic/profile_state.dart';
+import '../../../../core/theming/app_colors.dart';
+import '../../../../core/utils/app_constants.dart';
+import '../../../../core/widgets/app_custom_vertical_divider.dart';
+import '../../../profile/data/models/countries_response_model.dart';
+import '../../../profile/logic/profile_cubit.dart';
+import '../../../profile/logic/profile_state.dart';
+import 'home_price_column_widget.dart';
 
 class HomeCurrenciesDropDownMenu extends StatefulWidget {
   const HomeCurrenciesDropDownMenu({super.key});
@@ -27,6 +28,7 @@ class _HomeCurrenciesDropDownMenuState
     extends State<HomeCurrenciesDropDownMenu> {
   List<CountriesResponseModel> currencies = [];
   CountriesResponseModel? selectedCurrency;
+
 
   Future<void> _loadCountriesData() async {
     try {
@@ -156,10 +158,12 @@ class _HomeCurrenciesDropDownMenuState
                                         color: Colors.grey),
                               ),
                               horizontalSpace(12),
-                              Text(
-                                currency.name ?? "غير معروف",
-                                style: AppStyles.font18PrimaryMedium.copyWith(
-                                  color: AppColors.blackColor,
+                              Flexible(
+                                child: Text(
+                                  currency.name ?? "غير معروف",
+                                  style: AppStyles.font18PrimaryMedium.copyWith(
+                                    color: AppColors.blackColor,
+                                  ),
                                 ),
                               ),
                               horizontalSpace(16),
@@ -177,45 +181,20 @@ class _HomeCurrenciesDropDownMenuState
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                homPriceColumnWidget(name: AppString.bankPrice, value: "50"),
+                HomePriceColumnWidget(name: AppString.bankPrice, value: "50"),
                 AppCustomVerticalDivider(
                   color: AppColors.blackColor,
                 ),
-                homPriceColumnWidget(name: AppString.lastUpdate, value: "50"),
+                HomePriceColumnWidget(name: AppString.lastUpdate, value: "50"),
                 AppCustomVerticalDivider(
                   color: AppColors.blackColor,
                 ),
-                homPriceColumnWidget(name: AppString.souqSouda, value: "50"),
+                HomePriceColumnWidget(name: AppString.souqSouda, value: "50"),
               ],
             ),
           ],
         ),
       ),
-    );
-  }
-
-  Column homPriceColumnWidget({
-    required String name,
-    required String value,
-  }) {
-    return Column(
-      children: [
-        Text(
-          name,
-          style: AppStyles.font14WhiteMedium.copyWith(
-            color: AppColors.grayColor,
-            fontWeight: FontWeightHelper.semiBold,
-          ),
-        ),
-        verticalSpace(8),
-        Text(
-          value,
-          style: AppStyles.font14WhiteMedium.copyWith(
-            color: AppColors.blackColor,
-            fontWeight: FontWeightHelper.semiBold,
-          ),
-        ),
-      ],
     );
   }
 }

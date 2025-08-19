@@ -1,4 +1,5 @@
 import 'package:black_market/features/home/data/models/banks_response_model.dart';
+import 'package:black_market/features/home/data/models/currencies_response_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
@@ -11,4 +12,7 @@ abstract class HomeRemoteDataSource {
 
   @GET(ApiConstants.banksEP)
   Future<List<BanksResponseModel>> getBanksList();
+
+  @GET(ApiConstants.currenciesEP)
+  Future<List<CurrenciesResponseModel>> getCurrenciesList();
 }

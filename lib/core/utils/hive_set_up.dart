@@ -5,6 +5,8 @@ import 'package:black_market/features/profile/data/models/about_app_response_mod
 import 'package:black_market/features/profile/data/models/countries_response_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import '../../features/home/data/models/currencies_response_model.dart';
+
 Future<void> initHive() async {
   await Hive.initFlutter();
   _registerHiveAdapters();
@@ -39,5 +41,11 @@ void _registerHiveAdapters() {
   }
   if (!Hive.isAdapterRegistered(7)) {
     Hive.registerAdapter(NameAdapter());
+  }
+  if (!Hive.isAdapterRegistered(8)) {
+    Hive.registerAdapter(CurrenciesResponseModelAdapter());
+  }
+  if (!Hive.isAdapterRegistered(9)) {
+    Hive.registerAdapter(CurrenciesPriceAdapter());
   }
 }

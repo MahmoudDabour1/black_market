@@ -1,6 +1,7 @@
 import 'package:black_market/features/home/data/repos/home_repos.dart';
 import 'package:bloc/bloc.dart';
 
+import '../../../core/routing/router_observer.dart';
 import 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
@@ -19,4 +20,18 @@ class HomeCubit extends Cubit<HomeState> {
       },
     );
   }
+
+ Future<void> getCurrenciesList()async{
+    final response = await homeRepos.getCurrenciesList();
+    response.when(
+      success: (currencies) {
+        emit(HomeState.currenciesSuccess(currencies));
+      },
+      failure: (e) {
+        logger.w(e.toString());
+
+        emit(HomeState.currenciesFailure(errorMessage: e.toString()));
+      },
+    );
+ }
 }

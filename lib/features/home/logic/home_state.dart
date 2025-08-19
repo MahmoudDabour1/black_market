@@ -11,5 +11,12 @@ part 'home_state.freezed.dart';
 
   const factory HomeState.banksFailure(
       {required String errorMessage}) = BankseFailure<T>;
+
+  const factory HomeState.currenciesLoading() = CurrenciesLoading;
+
+  const factory HomeState.currenciesSuccess(T data) =CurrenciesSuccess<T>;
+
+  const factory HomeState.currenciesFailure(
+      {required String errorMessage}) = CurrenciesFailure<T>;
 }
 
