@@ -38,7 +38,8 @@ class AppTextFormField extends StatelessWidget {
     this.enabled = true,
     this.onChanged,
     this.onTap,
-    this.readOnly = false, this.onFieldSubmitted,
+    this.readOnly = false,
+    this.onFieldSubmitted,
   });
 
   @override
@@ -65,7 +66,7 @@ class AppTextFormField extends StatelessWidget {
           ),
       obscureText: isObscureText ?? false,
       onFieldSubmitted: onFieldSubmitted,
-      readOnly: readOnly??false,
+      readOnly: readOnly ?? false,
       style: AppStyles.font14WhiteMedium,
       validator: (value) {
         return validator(value!);

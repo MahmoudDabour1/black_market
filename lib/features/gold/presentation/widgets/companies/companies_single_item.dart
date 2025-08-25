@@ -14,7 +14,10 @@ class CompaniesSingleItem extends StatelessWidget {
   final CompaniesResponseModel companiesResponseModel;
   final bool isSelected;
 
-  const CompaniesSingleItem({super.key, required this.companiesResponseModel, required this.isSelected});
+  const CompaniesSingleItem(
+      {super.key,
+      required this.companiesResponseModel,
+      required this.isSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +56,7 @@ class CompaniesSingleItem extends StatelessWidget {
           companiesResponseModel.name ?? "",
           style: AppStyles.font16whiteMedium.copyWith(
             fontWeight: FontWeightHelper.semiBold,
-            color: isSelected? AppColors.primaryColor: AppColors.whiteColor,
+            color: isSelected ? AppColors.primaryColor : AppColors.whiteColor,
           ),
         ),
       ],

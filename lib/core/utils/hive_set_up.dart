@@ -14,7 +14,6 @@ Future<void> initHive() async {
   await Hive.openBox<LoginResponseModel>(kUserBox);
   await Hive.openBox<AboutAppResponseModel>(kAboutAppBox);
   await Hive.openBox<List>(kBanksBox);
-
 }
 
 void _registerHiveAdapters() {

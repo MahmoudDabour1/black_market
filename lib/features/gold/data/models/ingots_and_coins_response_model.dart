@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 part 'ingots_and_coins_response_model.g.dart';
+
 @JsonSerializable()
 class IngotsAndCoinsResponseModel {
   @JsonKey(name: "ingots")
@@ -12,7 +13,8 @@ class IngotsAndCoinsResponseModel {
     this.coins,
   });
 
-  factory IngotsAndCoinsResponseModel.fromJson(Map<String, dynamic> json) => _$IngotsAndCoinsResponseModelFromJson(json);
+  factory IngotsAndCoinsResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$IngotsAndCoinsResponseModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$IngotsAndCoinsResponseModelToJson(this);
 }
@@ -97,7 +99,8 @@ class CompaniesDatum {
     this.ingotId,
   });
 
-  factory CompaniesDatum.fromJson(Map<String, dynamic> json) => _$CompaniesDatumFromJson(json);
+  factory CompaniesDatum.fromJson(Map<String, dynamic> json) =>
+      _$CompaniesDatumFromJson(json);
 
   Map<String, dynamic> toJson() => _$CompaniesDatumToJson(this);
 }

@@ -53,7 +53,7 @@ class GoldCubit extends Cubit<GoldState> {
       success: (data) {
         ingots = data.ingots ?? [];
         coins = data.coins ?? [];
-        emit(GoldState.ingotsAndCoinsSuccess(ingots: ingots,coins: coins));
+        emit(GoldState.ingotsAndCoinsSuccess(ingots: ingots, coins: coins));
       },
       failure: (error) {
         logger.w(error.toString());

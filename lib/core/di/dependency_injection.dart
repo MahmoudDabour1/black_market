@@ -54,16 +54,17 @@ Future<void> setupGetIt() async {
   sl.registerLazySingleton<ProfileRepos>(() => ProfileReposImpl(sl(), sl()));
   sl.registerFactory<ProfileCubit>(() => ProfileCubit(sl()));
 
-  sl.registerLazySingleton<Box<List>>(() => countriesBox,instanceName: kCountriesBox);
+  sl.registerLazySingleton<Box<List>>(() => countriesBox,
+      instanceName: kCountriesBox);
 
   sl.registerLazySingleton<HomeRemoteDataSource>(
       () => HomeRemoteDataSource(dio));
   sl.registerLazySingleton<HomeLocalDataSource>(
-      () => HomeLocalDataSourceImpl(countriesBox,currenciesBox));
+      () => HomeLocalDataSourceImpl(countriesBox, currenciesBox));
 
   sl.registerLazySingleton<HomeRepos>(() =>
       HomeRepoImpl(homeLocalDataSource: sl(), homeRemoteDataSource: sl()));
   sl.registerFactory<HomeCubit>(() => HomeCubit(sl()));
 
-  sl.registerLazySingleton<Box<List>>(() => banksBox,instanceName: kBanksBox);
+  sl.registerLazySingleton<Box<List>>(() => banksBox, instanceName: kBanksBox);
 }

@@ -121,8 +121,7 @@ class Branch {
     this.updatedAt,
   });
 
-  factory Branch.fromJson(Map<String, dynamic> json) =>
-      _$BranchFromJson(json);
+  factory Branch.fromJson(Map<String, dynamic> json) => _$BranchFromJson(json);
 
   Map<String, dynamic> toJson() => _$BranchToJson(this);
 }

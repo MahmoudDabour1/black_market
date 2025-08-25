@@ -11,20 +11,17 @@ abstract class HomeLocalDataSource {
   Future<void> cachedCurrenciesData(List<CurrenciesResponseModel> banks);
 
   List<CurrenciesResponseModel>? getCachedCurrenciesData();
-
-
 }
 
 class HomeLocalDataSourceImpl implements HomeLocalDataSource {
   final Box<List> banksBox;
   final Box<List> currenciesBox;
 
-
   HomeLocalDataSourceImpl(this.banksBox, this.currenciesBox);
 
   @override
   Future<void> cachedBanksData(List<BanksResponseModel> banks) async {
-   await banksBox.put(kBanksBox, banks);
+    await banksBox.put(kBanksBox, banks);
   }
 
   @override
@@ -35,8 +32,8 @@ class HomeLocalDataSourceImpl implements HomeLocalDataSource {
   }
 
   @override
-  Future<void> cachedCurrenciesData(List<CurrenciesResponseModel> banks)async {
-   await currenciesBox.put(kCurrenciesBox, banks);
+  Future<void> cachedCurrenciesData(List<CurrenciesResponseModel> banks) async {
+    await currenciesBox.put(kCurrenciesBox, banks);
   }
 
   @override

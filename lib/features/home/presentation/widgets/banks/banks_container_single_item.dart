@@ -16,7 +16,8 @@ class BanksContainerSingleItem extends StatelessWidget {
 
   const BanksContainerSingleItem({
     super.key,
-    required this.bank, required this.prices,
+    required this.bank,
+    required this.prices,
   });
 
   @override
@@ -37,7 +38,9 @@ class BanksContainerSingleItem extends StatelessWidget {
           verticalSpace(8),
           bankNameText(),
           verticalSpace(8),
-          BanksPricesRow(price: prices,),
+          BanksPricesRow(
+            price: prices,
+          ),
         ],
       ),
     );

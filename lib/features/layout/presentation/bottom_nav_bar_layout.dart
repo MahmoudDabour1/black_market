@@ -30,31 +30,32 @@ class BottomNavBarLayout extends StatelessWidget {
                 topLeft: Radius.circular(20.r),
                 topRight: Radius.circular(20.r),
               ),
-            child: BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              backgroundColor: AppColors.fillColor,
-              currentIndex: bottomNavCubit.currentIndex,
-              iconSize: 40.r,
-              selectedFontSize: 16.sp,
-              unselectedFontSize: 16.sp,
-              unselectedIconTheme: IconThemeData(
-                size: 24.r,
-              ),
-              enableFeedback: true,
-              onTap: (index) {
-                bottomNavCubit.changeBottomNavIndex(index);
-              },
-              items: List.generate(
-                bottomNavCubit.unSelectedIcons.length,
-                (index) => BottomNavigationBarItem(
-                  icon: Image.asset(bottomNavCubit.unSelectedIcons[index]),
-                  activeIcon: Image.asset(bottomNavCubit.selectedIcons[index]),
-                  label: bottomNavCubit.labels[index],
+              child: BottomNavigationBar(
+                type: BottomNavigationBarType.fixed,
+                backgroundColor: AppColors.fillColor,
+                currentIndex: bottomNavCubit.currentIndex,
+                iconSize: 40.r,
+                selectedFontSize: 16.sp,
+                unselectedFontSize: 16.sp,
+                unselectedIconTheme: IconThemeData(
+                  size: 24.r,
+                ),
+                enableFeedback: true,
+                onTap: (index) {
+                  bottomNavCubit.changeBottomNavIndex(index);
+                },
+                items: List.generate(
+                  bottomNavCubit.unSelectedIcons.length,
+                  (index) => BottomNavigationBarItem(
+                    icon: Image.asset(bottomNavCubit.unSelectedIcons[index]),
+                    activeIcon:
+                        Image.asset(bottomNavCubit.selectedIcons[index]),
+                    label: bottomNavCubit.labels[index],
+                  ),
                 ),
               ),
             ),
           ),
-        ),
         );
       },
     );

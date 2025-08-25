@@ -5,7 +5,8 @@ abstract class AppAssets {
   static const String profileIcon = 'assets/icons/Profile.png';
   static const String yellowProfileIcon = 'assets/icons/yellow_profile.png';
   static const String noteIcon = 'assets/icons/Note.png';
-  static const String yellowCalculatorIcon = 'assets/icons/yellow_calculator.png';
+  static const String yellowCalculatorIcon =
+      'assets/icons/yellow_calculator.png';
   static const String shareIcon = 'assets/icons/basil_share-outline.png';
   static const String arrowDownIcon = 'assets/icons/arrow_down.png';
   static const String arrowRightIcon = 'assets/icons/ArrowRight.png';

@@ -16,17 +16,17 @@ class CoinsDetailsList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  BlocBuilder<GoldCubit, GoldState>(
+    return BlocBuilder<GoldCubit, GoldState>(
       builder: (context, state) {
         return state.maybeWhen(
             ingotsAndCoinsLoading: () => CircularProgressIndicator(),
-            ingotsAndCoinsSuccess: (data,coinsData) =>
-                setupSuccess(coinsData),
+            ingotsAndCoinsSuccess: (data, coinsData) => setupSuccess(coinsData),
             ingotsAndCoinsFailure: (error) => setupError(error),
             orElse: () => SizedBox.shrink());
       },
     );
   }
+
   Center setupError(String error) {
     return Center(
       child: Text(
@@ -70,43 +70,46 @@ class CoinsDetailsList extends StatelessWidget {
               borderRadius: BorderRadius.circular(16.r),
               side: BorderSide(color: AppColors.primaryColor, width: 2.w),
             ),
-            childrenPadding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+            childrenPadding:
+                EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
             collapsedShape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16.r),
             ),
             children: coin.companiesData?.map((cd) {
-              return Column(
-                children: [
-                  IngotsDetailsRow(
-                    title: AppString.gramPrice,
-                    price: coin.price?.sellPrice?.toString() ?? "-",
-                  ),
-                  IngotsDetailsRow(
-                    title: AppString.gramWorkManShop,
-                    price: cd.workmanship?.toString() ?? "-",
-                  ),
-                  IngotsDetailsRow(
-                    title: AppString.allTax,
-                    price: cd.tax?.toString() ?? "-",
-                  ),
-                  IngotsDetailsRow(
-                    title: AppString.allPrice,
-                    price:
-                    "${(coin.price?.sellPrice ?? 0) + (cd.workmanship ?? 0) + (cd.tax ?? 0)}",
-                    color: AppColors.primaryColor,
-                    fontSize: 18,
-                  ),
-                  IngotsDetailsRow(
-                    title: AppString.returnPrice,
-                    price: cd.returnFees?.toString() ?? "-",
-                  ),
-                  IngotsDetailsRow(
-                    title: AppString.different,
-                    price: "${(cd.workmanship ?? 0) - (cd.returnFees ?? 0)}",
-                  ),
-                ],
-              );
-            }).toList() ?? [],
+                  return Column(
+                    children: [
+                      IngotsDetailsRow(
+                        title: AppString.gramPrice,
+                        price: coin.price?.sellPrice?.toString() ?? "-",
+                      ),
+                      IngotsDetailsRow(
+                        title: AppString.gramWorkManShop,
+                        price: cd.workmanship?.toString() ?? "-",
+                      ),
+                      IngotsDetailsRow(
+                        title: AppString.allTax,
+                        price: cd.tax?.toString() ?? "-",
+                      ),
+                      IngotsDetailsRow(
+                        title: AppString.allPrice,
+                        price:
+                            "${(coin.price?.sellPrice ?? 0) + (cd.workmanship ?? 0) + (cd.tax ?? 0)}",
+                        color: AppColors.primaryColor,
+                        fontSize: 18,
+                      ),
+                      IngotsDetailsRow(
+                        title: AppString.returnPrice,
+                        price: cd.returnFees?.toString() ?? "-",
+                      ),
+                      IngotsDetailsRow(
+                        title: AppString.different,
+                        price:
+                            "${(cd.workmanship ?? 0) - (cd.returnFees ?? 0)}",
+                      ),
+                    ],
+                  );
+                }).toList() ??
+                [],
           ),
         );
       },

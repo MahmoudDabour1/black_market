@@ -15,7 +15,7 @@ class HomeAverageContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       height: 100.h,
       decoration: BoxDecoration(
         color: AppColors.primaryColor,
@@ -43,7 +43,7 @@ class HomeAverageContainer extends StatelessWidget {
           ),
           HomePriceColumnWidget(
             name: AppString.sell,
-            value:_calculateAverageBuyPrice(selectedCurrency),
+            value: _calculateAverageBuyPrice(selectedCurrency),
             fontStyle: AppStyles.font16BlackSemiBold,
           ),
           Image.asset(
@@ -56,26 +56,32 @@ class HomeAverageContainer extends StatelessWidget {
       ),
     );
   }
+
   String _calculateAverageBuyPrice(CurrenciesResponseModel? currency) {
-    if (currency == null || currency.bankPrices == null || currency.bankPrices!.isEmpty) {
+    if (currency == null ||
+        currency.bankPrices == null ||
+        currency.bankPrices!.isEmpty) {
       return "0.00";
     }
 
     final prices = currency.bankPrices!;
-    final totalBuy = prices.fold<double>(0.0, (sum, item) => sum + (item.buyPrice ?? 0));
+    final totalBuy =
+        prices.fold<double>(0.0, (sum, item) => sum + (item.buyPrice ?? 0));
     final avgBuy = totalBuy / prices.length;
     return avgBuy.toStringAsFixed(2);
   }
 
   String _calculateAverageSellPrice(CurrenciesResponseModel? currency) {
-    if (currency == null || currency.bankPrices == null || currency.bankPrices!.isEmpty) {
+    if (currency == null ||
+        currency.bankPrices == null ||
+        currency.bankPrices!.isEmpty) {
       return "0.00";
     }
 
     final prices = currency.bankPrices!;
-    final totalSell = prices.fold<double>(0.0, (sum, item) => sum + (item.sellPrice ?? 0));
+    final totalSell =
+        prices.fold<double>(0.0, (sum, item) => sum + (item.sellPrice ?? 0));
     final avgSell = totalSell / prices.length;
     return avgSell.toStringAsFixed(2);
   }
-
 }

@@ -19,6 +19,7 @@ class UpdatePasswordRequestModel {
       'email': email,
     };
   }
+
   factory UpdatePasswordRequestModel.fromJson(Map<String, dynamic> json) {
     return UpdatePasswordRequestModel(
       password: json['password'] as String,

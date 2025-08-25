@@ -14,7 +14,7 @@ class BanksButtonsAndIconsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         BanksButtonContainerWidget(
@@ -31,7 +31,7 @@ class BanksButtonsAndIconsRow extends StatelessWidget {
             width: 60.w,
             imageUrl: "${ApiConstants.imagesBaseUrl}${bank.icon}",
             placeholder: (context, url) =>
-            const Center(child: CircularProgressIndicator()),
+                const Center(child: CircularProgressIndicator()),
             errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
         ),

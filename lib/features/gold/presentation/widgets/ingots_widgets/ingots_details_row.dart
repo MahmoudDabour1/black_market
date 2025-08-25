@@ -10,8 +10,13 @@ class IngotsDetailsRow extends StatelessWidget {
   final Color? color;
   final double? fontSize;
 
-  const IngotsDetailsRow(
-      {super.key, required this.title, required this.price, this.color, this.fontSize,});
+  const IngotsDetailsRow({
+    super.key,
+    required this.title,
+    required this.price,
+    this.color,
+    this.fontSize,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +29,8 @@ class IngotsDetailsRow extends StatelessWidget {
             child: Text(
               title,
               style: AppStyles.font18WhiteSemiBold.copyWith(
-                  color: color,
-                  fontSize:fontSize,
+                color: color,
+                fontSize: fontSize,
               ),
             ),
           ),

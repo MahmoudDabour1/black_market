@@ -1,5 +1,7 @@
 import 'package:black_market/black_market.dart';
 import 'package:bloc/bloc.dart';
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -20,8 +22,11 @@ void main() async {
   Bloc.observer = MyBlocObserver();
 
   runApp(
-    BlackMarket(
-      appRouter: AppRouter(),
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => BlackMarket(
+        appRouter: AppRouter(),
+      ),
     ),
   );
 }

@@ -11,19 +11,22 @@ class AppCustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   const AppCustomAppBar({
     super.key,
-    required this.title,  this.showBackButton= true, this.actions, this.bottom,
+    required this.title,
+    this.showBackButton = true,
+    this.actions,
+    this.bottom,
   });
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      leading:showBackButton? AppCustomBackButton():SizedBox.shrink(),
+      leading: showBackButton ? AppCustomBackButton() : SizedBox.shrink(),
       actions: actions,
       title: Text(title),
       centerTitle: true,
       backgroundColor: AppColors.blackColor,
       elevation: 0,
-      bottom:bottom,
+      bottom: bottom,
     );
   }
 

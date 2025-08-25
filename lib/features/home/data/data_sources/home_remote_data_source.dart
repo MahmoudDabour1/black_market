@@ -6,6 +6,7 @@ import 'package:retrofit/http.dart';
 
 import '../../../../core/networking/api_constants.dart';
 part 'home_remote_data_source.g.dart';
+
 @RestApi(baseUrl: ApiConstants.apiBaseUrl)
 abstract class HomeRemoteDataSource {
   factory HomeRemoteDataSource(Dio dio) = _HomeRemoteDataSource;

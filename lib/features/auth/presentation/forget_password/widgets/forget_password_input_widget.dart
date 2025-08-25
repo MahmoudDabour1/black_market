@@ -37,7 +37,6 @@ class ForgetPasswordInputWidget extends StatelessWidget {
           ),
         ),
         verticalSpace(16),
-
       ],
     );
   }

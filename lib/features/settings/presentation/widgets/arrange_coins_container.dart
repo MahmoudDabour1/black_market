@@ -20,26 +20,26 @@ class ArrangeCoinsContainer extends StatelessWidget {
       padding: EdgeInsets.only(bottom: 16.h),
       child: AppCustomContainerWidget(
           widget: Row(
-            children: [
-              horizontalSpace(16),
-              CachedNetworkImage(
-                  imageUrl: "${ApiConstants.imagesBaseUrl}${data.icon}",
-                  width: 50.h,
-                  fit: BoxFit.fill),
-              horizontalSpace(16.w),
-              Expanded(
-                child: Text(
-                  data.name ?? "",
-                  style: AppStyles.font18WhiteSemiBold,
-                ),
-              ),
-              Image.asset(
-                AppAssets.dragIcon,
-                width: 25.w,
-                fit: BoxFit.fill,
-              ),
-            ],
-          )),
+        children: [
+          horizontalSpace(16),
+          CachedNetworkImage(
+              imageUrl: "${ApiConstants.imagesBaseUrl}${data.icon}",
+              width: 50.h,
+              fit: BoxFit.fill),
+          horizontalSpace(16.w),
+          Expanded(
+            child: Text(
+              data.name ?? "",
+              style: AppStyles.font18WhiteSemiBold,
+            ),
+          ),
+          Image.asset(
+            AppAssets.dragIcon,
+            width: 25.w,
+            fit: BoxFit.fill,
+          ),
+        ],
+      )),
     );
   }
 }

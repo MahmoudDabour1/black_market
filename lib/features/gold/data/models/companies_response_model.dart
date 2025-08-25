@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 part 'companies_response_model.g.dart';
+
 @JsonSerializable()
 class CompaniesResponseModel {
   @JsonKey(name: "id")
@@ -27,7 +28,8 @@ class CompaniesResponseModel {
     this.updatedAt,
   });
 
-  factory CompaniesResponseModel.fromJson(Map<String, dynamic> json) => _$CompaniesResponseModelFromJson(json);
+  factory CompaniesResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$CompaniesResponseModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$CompaniesResponseModelToJson(this);
 }

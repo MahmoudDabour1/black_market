@@ -23,11 +23,11 @@ class HomeDropDownItemBuilder extends StatelessWidget {
             borderRadius: BorderRadius.circular(40.r),
             child: currency.icon != null
                 ? Image.network(
-              "${ApiConstants.imagesBaseUrl}${currency.icon}",
-              width: 20.w,
-              height: 20.h,
-              fit: BoxFit.fill,
-            )
+                    "${ApiConstants.imagesBaseUrl}${currency.icon}",
+                    width: 20.w,
+                    height: 20.h,
+                    fit: BoxFit.fill,
+                  )
                 : const Icon(Icons.flag, color: Colors.grey),
           ),
           horizontalSpace(12),

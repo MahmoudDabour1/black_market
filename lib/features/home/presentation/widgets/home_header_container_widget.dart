@@ -8,11 +8,9 @@ import '../../../../core/networking/api_constants.dart';
 import '../../../../core/theming/app_colors.dart';
 import '../../../../core/theming/app_string.dart';
 import '../../../../core/theming/app_styles.dart';
-import '../../../../core/theming/font_weight_helper.dart';
 import '../../../../core/utils/app_constants.dart';
 import '../../../../core/utils/spacing.dart';
 import '../../../auth/data/models/login_response_model.dart';
-import '../../../profile/presentation/widgets/profile_user_data_widget.dart';
 
 class HomeHeaderContainerWidget extends StatefulWidget {
   const HomeHeaderContainerWidget({super.key});
@@ -66,7 +64,7 @@ class _HomeHeaderContainerWidgetState extends State<HomeHeaderContainerWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 230.h,
+      height: MediaQuery.sizeOf(context).height * 0.281.h,
       width: MediaQuery.sizeOf(context).width,
       decoration: BoxDecoration(
         color: AppColors.fillColor,
@@ -92,7 +90,8 @@ class _HomeHeaderContainerWidgetState extends State<HomeHeaderContainerWidget> {
                       CircleAvatar(
                         radius: 25.r,
                         child: Image.network(
-                          (ApiConstants.imagesBaseUrl) + (userData?.user?.avatar ?? ""),
+                          (ApiConstants.imagesBaseUrl) +
+                              (userData?.user?.avatar ?? ""),
                           fit: BoxFit.fill,
                           width: 50.w,
                           height: 50.h,

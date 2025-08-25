@@ -21,7 +21,7 @@ class ProfileContainerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.only(bottom: 16.h),
+      padding: EdgeInsets.only(bottom: 16.h),
       child: GestureDetector(
         onTap: onTap,
         child: Container(
