@@ -21,12 +21,18 @@ class BottomNavBarLayout extends StatelessWidget {
             notchMargin: 10,
             clipBehavior: Clip.antiAlias,
             height: 90.h,
-            color: AppColors.whiteColor,
+            color: Colors.transparent,
             elevation: 0,
             shadowColor: AppColors.whiteColor,
             shape: const CircularNotchedRectangle(),
+            child: ClipRRect(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20.r),
+                topRight: Radius.circular(20.r),
+              ),
             child: BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
+              backgroundColor: AppColors.fillColor,
               currentIndex: bottomNavCubit.currentIndex,
               iconSize: 40.r,
               selectedFontSize: 16.sp,
@@ -48,6 +54,7 @@ class BottomNavBarLayout extends StatelessWidget {
               ),
             ),
           ),
+        ),
         );
       },
     );

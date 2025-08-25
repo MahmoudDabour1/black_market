@@ -75,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: 300.h,
+                height: MediaQuery.sizeOf(context).height * 0.281.h,
                 child: Stack(
                   children: [
                     HomeHeaderContainerWidget(),
@@ -109,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
               HomeAverageContainer(selectedCurrency: selectedCurrency),
               verticalSpace(30),
               BanksBlocBuilderWidget(
-                currenciesList: selectedCurrency?.bankPrices??[],
+                currenciesList: selectedCurrency?.bankPrices ?? [],
               ),
             ],
           ),
