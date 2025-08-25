@@ -55,7 +55,7 @@ class BlackMarket extends StatelessWidget {
           onGenerateRoute: appRouter.generateRoute,
           debugShowCheckedModeBanner: false,
           navigatorObservers: [NavigatorObserver(), routeObserver],
-          initialRoute: Routes.homeScreen,
+          initialRoute: Routes.bottomNavBarLayout,
         ),
       ),
     );

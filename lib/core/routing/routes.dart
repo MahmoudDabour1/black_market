@@ -14,6 +14,5 @@ abstract class Routes{
   static const String notificationsScreen = '/NotificationsScreen';
   static const String arrangeCoinsScreen = '/ArrangeCoinsScreen';
   static const String homeScreen = '/HomeScreen';
-
-
+  static const String bottomNavBarLayout = '/BottomNavBarLayout';
 }

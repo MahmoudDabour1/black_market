@@ -1,8 +1,11 @@
 import 'package:black_market/core/routing/routes.dart';
 import 'package:black_market/features/auth/presentation/forget_password/new_password_screen.dart';
 import 'package:black_market/features/gold/presentation/gold_screen.dart';
+import 'package:black_market/features/layout/logic/bottom_nav_cubit.dart';
+import 'package:black_market/features/layout/presentation/bottom_nav_bar_layout.dart';
 import 'package:black_market/features/profile/presentation/about_app_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/auth/presentation/forget_password/forget_password_screen.dart';
 import '../../features/auth/presentation/forget_password/otp_screen.dart';
@@ -97,6 +100,14 @@ class AppRouter {
       case Routes.homeScreen:
         return MaterialPageRoute(
           builder: (_) => HomeScreen(),
+          settings: settings,
+        );
+      case Routes.bottomNavBarLayout:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => BottomNavCubit(),
+            child: BottomNavBarLayout(),
+          ),
           settings: settings,
         );
     }
