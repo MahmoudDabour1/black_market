@@ -4,6 +4,7 @@ import 'package:black_market/features/gold/presentation/gold_screen.dart';
 import 'package:black_market/features/layout/logic/bottom_nav_cubit.dart';
 import 'package:black_market/features/layout/presentation/bottom_nav_bar_layout.dart';
 import 'package:black_market/features/profile/presentation/about_app_screen.dart';
+import 'package:black_market/features/splash/presentation/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -108,6 +109,11 @@ class AppRouter {
             create: (context) => BottomNavCubit(),
             child: BottomNavBarLayout(),
           ),
+          settings: settings,
+        );
+      case Routes.splashScreen:
+        return MaterialPageRoute(
+          builder: (_) => SplashScreen(),
           settings: settings,
         );
     }

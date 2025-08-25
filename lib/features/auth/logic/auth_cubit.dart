@@ -37,7 +37,7 @@ class AuthCubit extends Cubit<AuthState> {
       await saveUserToken(data.accessToken ?? "");
       emailController.clear();
       passwordController.clear();
-      context.pushNamed(Routes.profileScreen);
+      context.pushNamed(Routes.bottomNavBarLayout);
       showToast(message: "Login successful", isError: false);
     }, failure: (error) {
       emit(AuthState.loginError(error.toString()));

@@ -11,11 +11,11 @@ class OtpTimerAndButtonWidget extends StatefulWidget {
   const OtpTimerAndButtonWidget({super.key});
 
   @override
-  State<OtpTimerAndButtonWidget> createState() => _OtpTimerAndButtonWidgetState();
+  State<OtpTimerAndButtonWidget> createState() =>
+      _OtpTimerAndButtonWidgetState();
 }
 
 class _OtpTimerAndButtonWidgetState extends State<OtpTimerAndButtonWidget> {
-
   int _secondsRemaining = 30;
   Timer? _timer;
 
@@ -38,9 +38,10 @@ class _OtpTimerAndButtonWidgetState extends State<OtpTimerAndButtonWidget> {
       }
     });
   }
+
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         Text(
@@ -49,19 +50,19 @@ class _OtpTimerAndButtonWidgetState extends State<OtpTimerAndButtonWidget> {
         ),
         _secondsRemaining > 0
             ? Text(
-          "$_secondsRemaining ثانية",
-          style: AppStyles.font18PrimaryMedium,
-        )
+                "$_secondsRemaining ثانية",
+                style: AppStyles.font18PrimaryMedium,
+              )
             : TextButton(
-          child: Text(
-            AppString.sendAgain,
-            style: AppStyles.font18PrimaryMedium,
-          ),
-          onPressed: () {
-            context.read<AuthCubit>().forgetPassword(context);
-            _startTimer();
-          },
-        ),
+                child: Text(
+                  AppString.sendAgain,
+                  style: AppStyles.font18PrimaryMedium,
+                ),
+                onPressed: () {
+                  context.read<AuthCubit>().forgetPassword(context);
+                  _startTimer();
+                },
+              ),
       ],
     );
   }

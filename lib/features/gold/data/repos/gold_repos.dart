@@ -30,7 +30,7 @@ class GoldReposImpl implements GoldRepos {
   }
 
   @override
-  Future<ApiResult<List<CompaniesResponseModel>>> getCompanies()async {
+  Future<ApiResult<List<CompaniesResponseModel>>> getCompanies() async {
     try {
       final response = await goldRemoteDataSource.getCompanies();
       return ApiResult.success(response);
@@ -41,7 +41,7 @@ class GoldReposImpl implements GoldRepos {
   }
 
   @override
-  Future<ApiResult<IngotsAndCoinsResponseModel>> getIngotsAndCoins()async {
+  Future<ApiResult<IngotsAndCoinsResponseModel>> getIngotsAndCoins() async {
     try {
       final response = await goldRemoteDataSource.getIngotsAndCoins();
       return ApiResult.success(response);

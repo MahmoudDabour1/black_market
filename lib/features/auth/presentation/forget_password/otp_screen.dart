@@ -19,7 +19,9 @@ class OtpScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           OtpTextsWidget(email: email),
-          OtpFelidsWidget(email: email,),
+          OtpFelidsWidget(
+            email: email,
+          ),
           verticalSpace(32),
           OtpTimerAndButtonWidget(),
         ],

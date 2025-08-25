@@ -46,11 +46,13 @@ class AppCustomButton extends StatelessWidget {
         ),
         onPressed: onPressed,
         child: isLoading
-            ? CircularProgressIndicator(color: AppColors.blackColor,)
+            ? CircularProgressIndicator(
+                color: AppColors.blackColor,
+              )
             : Text(
                 textButton,
                 style: AppStyles.font18WhiteSemiBold.copyWith(
-                  color: textColor??AppColors.blackColor,
+                  color: textColor ?? AppColors.blackColor,
                 ),
                 textAlign: TextAlign.center,
               ),

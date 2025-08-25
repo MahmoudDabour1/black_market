@@ -55,7 +55,7 @@ class NewPasswordInputsWidget extends StatelessWidget {
                 width: 25.h,
               ),
             ),
-            verticalSpace(16),        
+            verticalSpace(16),
           ],
         ),
       ),

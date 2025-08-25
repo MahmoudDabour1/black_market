@@ -33,7 +33,7 @@ class ForgetPasswordScreen extends StatelessWidget {
                   final cubit = context.read<AuthCubit>();
                   return AppCustomButton(
                     textButton: AppString.con,
-                     isLoading: state is ForgetPasswordLoading,
+                    isLoading: state is ForgetPasswordLoading,
                     onPressed: () {
                       cubit.forgetPassword(context);
                     },

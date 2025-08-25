@@ -1,4 +1,4 @@
-abstract class Routes{
+abstract class Routes {
   static const String loginScreen = '/LoginScreen';
   static const String registerScreen = '/RegisterScreen';
   static const String forgetPasswordScreen = '/ForgetPasswordScreen';
@@ -15,4 +15,5 @@ abstract class Routes{
   static const String arrangeCoinsScreen = '/ArrangeCoinsScreen';
   static const String homeScreen = '/HomeScreen';
   static const String bottomNavBarLayout = '/BottomNavBarLayout';
+  static const String splashScreen = '/SplashScreen';
 }

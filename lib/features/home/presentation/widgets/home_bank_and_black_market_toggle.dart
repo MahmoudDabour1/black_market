@@ -8,7 +8,8 @@ import '../../../../core/utils/spacing.dart';
 class HomeBankAndBlackMarketToggle extends StatelessWidget {
   final bool isBankSelected;
   final ValueChanged<bool> onToggle;
-  const HomeBankAndBlackMarketToggle({super.key, required this.isBankSelected, required this.onToggle});
+  const HomeBankAndBlackMarketToggle(
+      {super.key, required this.isBankSelected, required this.onToggle});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +40,7 @@ class HomeBankAndBlackMarketToggle extends StatelessWidget {
                       child: Text(
                         AppString.souqSouda,
                         style: TextStyle(
-                          color:  !isBankSelected
+                          color: !isBankSelected
                               ? AppColors.primaryColor
                               : AppColors.blackColor,
                           fontSize: 16.sp,
@@ -53,7 +54,7 @@ class HomeBankAndBlackMarketToggle extends StatelessWidget {
             horizontalSpace(8),
             Expanded(
               child: GestureDetector(
-                onTap:()=>onToggle(true),
+                onTap: () => onToggle(true),
                 child: Container(
                   decoration: BoxDecoration(
                     color: isBankSelected
@@ -83,4 +84,3 @@ class HomeBankAndBlackMarketToggle extends StatelessWidget {
     );
   }
 }
-

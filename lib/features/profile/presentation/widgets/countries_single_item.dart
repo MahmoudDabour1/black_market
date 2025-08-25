@@ -16,7 +16,7 @@ class CountriesSingleItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.only(bottom: 16.h),
+      padding: EdgeInsets.only(bottom: 16.h),
       child: Container(
         height: 65.h,
         decoration: BoxDecoration(
@@ -27,7 +27,9 @@ class CountriesSingleItem extends StatelessWidget {
           children: [
             horizontalSpace(16),
             CachedNetworkImage(
-                imageUrl: "${ApiConstants.imagesBaseUrl}${data.icon}",width: 50.h,fit: BoxFit.fill),
+                imageUrl: "${ApiConstants.imagesBaseUrl}${data.icon}",
+                width: 50.h,
+                fit: BoxFit.fill),
             horizontalSpace(16.w),
             Expanded(
               child: Text(

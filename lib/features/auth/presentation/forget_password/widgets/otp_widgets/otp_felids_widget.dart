@@ -7,7 +7,7 @@ import '../../../../../../core/theming/app_styles.dart';
 
 class OtpFelidsWidget extends StatefulWidget {
   final String email;
-  const OtpFelidsWidget({super.key,required this.email});
+  const OtpFelidsWidget({super.key, required this.email});
 
   @override
   State<OtpFelidsWidget> createState() => _OtpFelidsWidgetState();
@@ -15,7 +15,7 @@ class OtpFelidsWidget extends StatefulWidget {
 
 class _OtpFelidsWidgetState extends State<OtpFelidsWidget> {
   final List<TextEditingController> _controllers =
-  List.generate(4, (_) => TextEditingController());
+      List.generate(4, (_) => TextEditingController());
   final List<FocusNode> _focusNodes = List.generate(4, (_) => FocusNode());
 
   @override
@@ -34,17 +34,19 @@ class _OtpFelidsWidgetState extends State<OtpFelidsWidget> {
     if (allFilled) {
       String otp = _controllers.map((c) => c.text).join();
       debugPrint("OTP Entered: $otp");
-      context.pushNamed(Routes.newPasswordScreen,arguments: {
-        'email': widget.email,
-        'otp': otp,
-      },);
-
-
+      context.pushNamed(
+        Routes.newPasswordScreen,
+        arguments: {
+          'email': widget.email,
+          'otp': otp,
+        },
+      );
     }
   }
+
   @override
   Widget build(BuildContext context) {
-    return  Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: List.generate(4, (index) {
         return SizedBox(

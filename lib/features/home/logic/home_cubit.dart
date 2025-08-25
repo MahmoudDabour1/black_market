@@ -21,7 +21,7 @@ class HomeCubit extends Cubit<HomeState> {
     );
   }
 
- Future<void> getCurrenciesList()async{
+  Future<void> getCurrenciesList() async {
     final response = await homeRepos.getCurrenciesList();
     response.when(
       success: (currencies) {
@@ -33,5 +33,5 @@ class HomeCubit extends Cubit<HomeState> {
         emit(HomeState.currenciesFailure(errorMessage: e.toString()));
       },
     );
- }
+  }
 }

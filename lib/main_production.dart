@@ -11,9 +11,10 @@ import 'core/utils/my_bloc_observer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await ScreenUtil.ensureScreenSize();
+
   await Future.wait([
     setupGetIt(),
-    ScreenUtil.ensureScreenSize(),
     Hive.initFlutter(),
     initHive(),
   ]);

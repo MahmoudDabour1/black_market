@@ -37,7 +37,7 @@ class HomeRepoImpl implements HomeRepos {
   }
 
   @override
-  Future<ApiResult<List<CurrenciesResponseModel>>> getCurrenciesList() async{
+  Future<ApiResult<List<CurrenciesResponseModel>>> getCurrenciesList() async {
     try {
       final response = await homeRemoteDataSource.getCurrenciesList();
       await homeLocalDataSource.cachedCurrenciesData(response);

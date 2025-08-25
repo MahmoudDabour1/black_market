@@ -8,7 +8,6 @@ import '../../../../../core/theming/app_assets.dart';
 import '../../../../../core/utils/spacing.dart';
 import 'package:shimmer/shimmer.dart';
 
-
 class GoldImageAndShareButtonRow extends StatelessWidget {
   final GoldResponseModel data;
 

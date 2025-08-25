@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 part 'gold_response_model.g.dart';
+
 @JsonSerializable()
 class GoldResponseModel {
   @JsonKey(name: "id")
@@ -30,7 +31,8 @@ class GoldResponseModel {
     this.price,
   });
 
-  factory GoldResponseModel.fromJson(Map<String, dynamic> json) => _$GoldResponseModelFromJson(json);
+  factory GoldResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$GoldResponseModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$GoldResponseModelToJson(this);
 }

@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 part 'update_password_response_model.g.dart';
+
 @JsonSerializable()
 class UpdatePasswordResponseModel {
   @JsonKey(name: "user")
@@ -15,7 +16,8 @@ class UpdatePasswordResponseModel {
     this.expiresAt,
   });
 
-  factory UpdatePasswordResponseModel.fromJson(Map<String, dynamic> json) => _$UpdatePasswordResponseModelFromJson(json);
+  factory UpdatePasswordResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$UpdatePasswordResponseModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$UpdatePasswordResponseModelToJson(this);
 }

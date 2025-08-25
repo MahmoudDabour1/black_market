@@ -11,7 +11,8 @@ class CoinsTap extends StatefulWidget {
   State<CoinsTap> createState() => _CoinsTapState();
 }
 
-class _CoinsTapState extends State<CoinsTap> with AutomaticKeepAliveClientMixin<CoinsTap> {
+class _CoinsTapState extends State<CoinsTap>
+    with AutomaticKeepAliveClientMixin<CoinsTap> {
   @override
   bool get wantKeepAlive => true;
   @override

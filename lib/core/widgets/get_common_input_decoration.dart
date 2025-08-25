@@ -15,9 +15,9 @@ InputDecoration getCommonInputDecoration({
   return InputDecoration(
     isDense: true,
     filled: true,
-    fillColor: fillColor??AppColors.fillColor,
+    fillColor: fillColor ?? AppColors.fillColor,
     contentPadding: EdgeInsets.symmetric(
-      vertical:verticalPadding?? 15.h,
+      vertical: verticalPadding ?? 15.h,
       horizontal: 20.w,
     ),
     enabledBorder: OutlineInputBorder(
@@ -33,15 +33,14 @@ InputDecoration getCommonInputDecoration({
       borderRadius: BorderRadius.circular(16.r),
     ),
     border: OutlineInputBorder(
-      borderSide:  BorderSide.none,
+      borderSide: BorderSide.none,
       borderRadius: BorderRadius.circular(16.r),
     ),
     disabledBorder: OutlineInputBorder(
       borderSide: const BorderSide(color: AppColors.fillColor, width: 1.3),
       borderRadius: BorderRadius.circular(16.r),
     ),
-    hintText:
-      labelText,
+    hintText: labelText,
     labelStyle: labelStyle ?? AppStyles.font16GrayLight,
     prefixIcon: prefixIcon,
     suffixIcon: suffixIcon,
