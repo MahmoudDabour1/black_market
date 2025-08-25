@@ -15,4 +15,5 @@ abstract class Routes{
   static const String arrangeCoinsScreen = '/ArrangeCoinsScreen';
   static const String homeScreen = '/HomeScreen';
   static const String bottomNavBarLayout = '/BottomNavBarLayout';
+  static const String splashScreen = '/SplashScreen';
 }

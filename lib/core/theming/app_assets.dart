@@ -23,4 +23,5 @@ abstract class AppAssets {
   static const String calculatorIcon = 'assets/icons/calculator.png';
   static const String goldIcon = 'assets/icons/gold.png';
   static const String yellowGoldIcon = 'assets/icons/yellow_gold.png';
+  static const String onBoardingIcon = 'assets/images/on_Boarding.png';
 }

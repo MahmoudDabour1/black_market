@@ -21,14 +21,16 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
   List<CurrenciesResponseModel> currencies = [];
   CurrenciesResponseModel? selectedCurrency;
 
   Future<void> _loadCountriesData() async {
     try {
-      var countriesBox = await Hive.openBox<List>(kCurrenciesBox);
-      var countriesData = countriesBox.get(kCurrenciesData);
+      var box = await Hive.openBox<List>(kCurrenciesBox);
+      var countriesData = box.get(kCurrenciesData);
       if (countriesData != null) {
         setState(() {
           currencies = countriesData.cast<CurrenciesResponseModel>().toList();
@@ -37,8 +39,6 @@ class _HomeScreenState extends State<HomeScreen> {
             selectedCurrency = currencies.first;
           }
         });
-      } else {
-        context.read<HomeCubit>().getCurrenciesList();
       }
     } catch (e) {
       debugPrint("Error loading countries data: $e");
@@ -48,25 +48,24 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    _loadCountriesData();
-    context.read<HomeCubit>().stream.listen((state) async {
-      if (state is CurrenciesSuccess) {
-        setState(() {
-          currencies = state.maybeWhen(
-              orElse: () => [], currenciesSuccess: (countries) => countries);
-          currencies.removeWhere((currency) => currency.id == 21);
-          if (currencies.isNotEmpty) {
-            selectedCurrency ??= currencies.first;
-          }
-        });
-      }
-    });
+    final cubit = context.read<HomeCubit>();
+
+    if (cubit.state is CurrenciesSuccess) {
+      final state = cubit.state as CurrenciesSuccess;
+      currencies = state.maybeWhen(
+          orElse: () => [], currenciesSuccess: (countries) => countries);
+      currencies.removeWhere((currency) => currency.id == 21);
+      selectedCurrency = currencies.isNotEmpty ? currencies.first : null;
+    } else {
+      _loadCountriesData();
+    }
   }
 
   bool isBankSelected = true;
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
