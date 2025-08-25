@@ -18,6 +18,10 @@ class AppStyles {
     fontSize: 16.sp,
     color: AppColors.whiteColor,
     fontWeight: FontWeightHelper.semiBold,
+  );static TextStyle font16BlackSemiBold = TextStyle(
+    fontSize: 16.sp,
+    color: AppColors.blackColor,
+    fontWeight: FontWeightHelper.semiBold,
   );static TextStyle font18whiteSemiBold = TextStyle(
     fontSize: 18.sp,
     color: AppColors.whiteColor,

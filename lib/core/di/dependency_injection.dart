@@ -1,12 +1,15 @@
 import 'package:black_market/core/utils/app_constants.dart';
 import 'package:black_market/features/auth/data/data_source/auth_local_data_source.dart';
 import 'package:black_market/features/auth/data/data_source/auth_remote_data_source.dart';
-import 'package:black_market/features/auth/data/models/login_response_model.dart';
 import 'package:black_market/features/auth/data/repos/auth_repos.dart';
 import 'package:black_market/features/auth/logic/auth_cubit.dart';
 import 'package:black_market/features/gold/data/data_source/gold_remote_data_source.dart';
 import 'package:black_market/features/gold/data/repos/gold_repos.dart';
 import 'package:black_market/features/gold/logic/gold_cubit.dart';
+import 'package:black_market/features/home/data/data_sources/home_local_data_source.dart';
+import 'package:black_market/features/home/data/data_sources/home_remote_data_source.dart';
+import 'package:black_market/features/home/data/repos/home_repos.dart';
+import 'package:black_market/features/home/logic/home_cubit.dart';
 import 'package:black_market/features/profile/data/data_source/profile_local_data_source.dart';
 import 'package:black_market/features/profile/data/data_source/profile_remote_data_source.dart';
 import 'package:black_market/features/profile/data/repos/profile_repos.dart';
@@ -24,6 +27,8 @@ Future<void> setupGetIt() async {
 
   Dio dio = DioFactory.getDio();
   final countriesBox = await Hive.openBox<List>(kCountriesBox);
+  final banksBox = await Hive.openBox<List>(kBanksBox);
+  final currenciesBox = await Hive.openBox<List>(kCurrenciesBox);
 
 //auth
   sl.registerLazySingleton<AuthRemoteDataSource>(
@@ -49,5 +54,16 @@ Future<void> setupGetIt() async {
   sl.registerLazySingleton<ProfileRepos>(() => ProfileReposImpl(sl(), sl()));
   sl.registerFactory<ProfileCubit>(() => ProfileCubit(sl()));
 
-  sl.registerLazySingleton<Box<List>>(() => countriesBox);
+  sl.registerLazySingleton<Box<List>>(() => countriesBox,instanceName: kCountriesBox);
+
+  sl.registerLazySingleton<HomeRemoteDataSource>(
+      () => HomeRemoteDataSource(dio));
+  sl.registerLazySingleton<HomeLocalDataSource>(
+      () => HomeLocalDataSourceImpl(countriesBox,currenciesBox));
+
+  sl.registerLazySingleton<HomeRepos>(() =>
+      HomeRepoImpl(homeLocalDataSource: sl(), homeRemoteDataSource: sl()));
+  sl.registerFactory<HomeCubit>(() => HomeCubit(sl()));
+
+  sl.registerLazySingleton<Box<List>>(() => banksBox,instanceName: kBanksBox);
 }
