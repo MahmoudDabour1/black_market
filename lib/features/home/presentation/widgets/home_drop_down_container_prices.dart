@@ -29,6 +29,7 @@ class HomeDropDownContainerPrices extends StatelessWidget {
         HomePriceColumnWidget(
           name: AppString.lastUpdate,
           value: _formatLastUpdate(selectedCurrency.updatedAt),
+          isValueOnly: true,
         ),
         AppCustomVerticalDivider(
           color: AppColors.blackColor,
@@ -36,6 +37,7 @@ class HomeDropDownContainerPrices extends StatelessWidget {
         HomePriceColumnWidget(
           name: AppString.souqSouda,
           value: _getLastPrice(selectedCurrency.blackMarketPrices),
+          textColor: AppColors.goldColor,
         ),
       ],
     );

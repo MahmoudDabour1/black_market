@@ -5,6 +5,7 @@ import 'package:black_market/features/home/logic/home_cubit.dart';
 import 'package:black_market/features/home/logic/home_state.dart';
 import 'package:black_market/features/home/presentation/widgets/banks/banks_bloc_builder_widget.dart';
 import 'package:black_market/features/home/presentation/widgets/home_average_container.dart';
+import 'package:black_market/features/home/presentation/widgets/home_bank_and_black_market_toggle.dart';
 import 'package:black_market/features/home/presentation/widgets/home_currencies_drop_down_menu.dart';
 import 'package:black_market/features/home/presentation/widgets/home_header_container_widget.dart';
 import 'package:black_market/features/home/presentation/widgets/home_price_chart.dart';
@@ -62,12 +63,14 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  bool isBankSelected = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+          physics: AlwaysScrollableScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -90,13 +93,23 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
+              HomeBankAndBlackMarketToggle(
+                isBankSelected: isBankSelected,
+                onToggle: (value) {
+                  setState(() {
+                    isBankSelected = value;
+                  });
+                },
+              ),
               CustomPriceChart(
-                prices: selectedCurrency?.bankPrices ?? [],
+                prices: isBankSelected
+                    ? selectedCurrency?.bankPrices ?? []
+                    : selectedCurrency?.blackMarketPrices ?? [],
               ),
               HomeAverageContainer(selectedCurrency: selectedCurrency),
               verticalSpace(30),
               BanksBlocBuilderWidget(
-                currenciesList: selectedCurrency!.bankPrices!,
+                currenciesList: selectedCurrency?.bankPrices??[],
               ),
             ],
           ),
