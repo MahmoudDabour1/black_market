@@ -71,5 +71,8 @@ class AppString {
   static const logout= "تسجيل الخروج";
   static const doYouWantToLogout = "هل أنت متأكد من تسجيل الخروج";
   static const logoutSuccess = "تم تسجيل الخروج بنجاح";
+  static const min = "دقيقة";
+  static const averagePrice = "متوسط السعر";
+  static const egp = "ج.م";
 
 }

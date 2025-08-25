@@ -1,23 +1,25 @@
-import 'package:black_market/core/networking/api_constants.dart';
-import 'package:black_market/core/theming/app_string.dart';
 import 'package:black_market/core/theming/app_styles.dart';
-import 'package:black_market/core/theming/font_weight_helper.dart';
 import 'package:black_market/core/utils/spacing.dart';
+import 'package:black_market/features/home/data/models/currencies_response_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:hive/hive.dart';
 
 import '../../../../core/theming/app_colors.dart';
-import '../../../../core/utils/app_constants.dart';
-import '../../../../core/widgets/app_custom_vertical_divider.dart';
-import '../../../profile/data/models/countries_response_model.dart';
-import '../../../profile/logic/profile_cubit.dart';
-import '../../../profile/logic/profile_state.dart';
-import 'home_price_column_widget.dart';
+import 'home_build_drop_down_item.dart';
+import 'home_drop_down_container_prices.dart';
+import 'home_drop_down_item_builder.dart';
 
 class HomeCurrenciesDropDownMenu extends StatefulWidget {
-  const HomeCurrenciesDropDownMenu({super.key});
+  final List<CurrenciesResponseModel> currencies;
+  final CurrenciesResponseModel selectedCurrency;
+  final Function(CurrenciesResponseModel) onCurrencyChanged;
+
+  const HomeCurrenciesDropDownMenu({
+    super.key,
+    required this.currencies,
+    required this.selectedCurrency,
+    required this.onCurrencyChanged,
+  });
 
   @override
   State<HomeCurrenciesDropDownMenu> createState() =>
@@ -26,38 +28,14 @@ class HomeCurrenciesDropDownMenu extends StatefulWidget {
 
 class _HomeCurrenciesDropDownMenuState
     extends State<HomeCurrenciesDropDownMenu> {
-  List<CountriesResponseModel> currencies = [];
-  CountriesResponseModel? selectedCurrency;
-
-
-  Future<void> _loadCountriesData() async {
-    try {
-      var countriesBox = await Hive.openBox<List>(kCountriesBox);
-      var countriesData = countriesBox.get(kCountriesData);
-      if (countriesData != null) {
-        setState(() {
-          currencies = countriesData.cast<CountriesResponseModel>().toList();
-        });
-      } else {
-        context.read<ProfileCubit>().getCountries();
-      }
-    } catch (e) {
-      debugPrint("Error loading countries data: $e");
-    }
-  }
+  CurrenciesResponseModel? selectedCurrency;
+  List<CurrenciesResponseModel> currencies = [];
 
   @override
   void initState() {
     super.initState();
-    _loadCountriesData();
-    context.read<ProfileCubit>().stream.listen((state) async {
-      if (state is CountriesSuccess) {
-        setState(() {
-          currencies = state.maybeWhen(
-              orElse: () => [], countriesSuccess: (countries) => countries);
-        });
-      }
-    });
+    currencies = widget.currencies;
+    selectedCurrency = widget.selectedCurrency;
   }
 
   @override
@@ -76,8 +54,8 @@ class _HomeCurrenciesDropDownMenuState
         child: Column(
           children: [
             Center(
-                child: DropdownButtonFormField<String>(
-                    value: selectedCurrency?.name,
+                child: DropdownButtonFormField<int>(
+                    value: selectedCurrency?.id,
                     decoration: InputDecoration(
                       border: InputBorder.none,
                     ),
@@ -88,109 +66,31 @@ class _HomeCurrenciesDropDownMenuState
                     isDense: true,
                     isExpanded: true,
                     items: currencies.map((currency) {
-                      return DropdownMenuItem<String>(
+                      return DropdownMenuItem<int>(
                         alignment: Alignment.centerLeft,
-                        value: currency.name,
-                        child: Directionality(
-                          textDirection: TextDirection.ltr,
-                          child: Padding(
-                            padding: EdgeInsets.all(16.r),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(70.r),
-                                  child: currency.icon != null
-                                      ? Image.network(
-                                          "${ApiConstants.imagesBaseUrl}${currency.icon}",
-                                          width: 40.w,
-                                          height: 40.h,
-                                          fit: BoxFit.fill,
-                                          errorBuilder:
-                                              (context, error, stackTrace) =>
-                                                  const Icon(Icons.error,
-                                                      color: Colors.red,
-                                                      size: 20),
-                                        )
-                                      : const Icon(Icons.flag,
-                                          color: Colors.white),
-                                ),
-                                horizontalSpace(12),
-                                Flexible(
-                                  child: Text(
-                                    currency.name ?? "غير معروف",
-                                    style: AppStyles.font18PrimaryMedium
-                                        .copyWith(color: AppColors.whiteColor),
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 2,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                        value: currency.id,
+                        child: HomeBuildDropDownItem(
+                          currency: currency,
                         ),
                       );
                     }).toList(),
                     onChanged: (value) {
                       setState(() {
                         selectedCurrency =
-                            currencies.firstWhere((c) => c.name == value);
+                            currencies.firstWhere((c) => c.id == value);
                       });
+                      widget.onCurrencyChanged(selectedCurrency!);
                     },
                     selectedItemBuilder: (context) {
                       return currencies.map((currency) {
-                        return Center(
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(50.r),
-                                child: currency.icon != null
-                                    ? Image.network(
-                                        "${ApiConstants.imagesBaseUrl}${currency.icon}",
-                                        width: 30.w,
-                                        height: 30.h,
-                                        fit: BoxFit.fill,
-                                      )
-                                    : const Icon(Icons.flag,
-                                        color: Colors.grey),
-                              ),
-                              horizontalSpace(12),
-                              Flexible(
-                                child: Text(
-                                  currency.name ?? "غير معروف",
-                                  style: AppStyles.font18PrimaryMedium.copyWith(
-                                    color: AppColors.blackColor,
-                                  ),
-                                ),
-                              ),
-                              horizontalSpace(16),
-                              Icon(
-                                Icons.arrow_drop_down,
-                                size: 30.r,
-                                color: AppColors.blackColor,
-                              ),
-                            ],
-                          ),
+                        return HomeDropDownItemBuilder(
+                          currency: currency,
                         );
                       }).toList();
                     })),
             verticalSpace(8),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                HomePriceColumnWidget(name: AppString.bankPrice, value: "50"),
-                AppCustomVerticalDivider(
-                  color: AppColors.blackColor,
-                ),
-                HomePriceColumnWidget(name: AppString.lastUpdate, value: "50"),
-                AppCustomVerticalDivider(
-                  color: AppColors.blackColor,
-                ),
-                HomePriceColumnWidget(name: AppString.souqSouda, value: "50"),
-              ],
+            HomeDropDownContainerPrices(
+              selectedCurrency: selectedCurrency!,
             ),
           ],
         ),

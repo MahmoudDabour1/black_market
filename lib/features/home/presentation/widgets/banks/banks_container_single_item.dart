@@ -6,15 +6,17 @@ import '../../../../../core/theming/app_colors.dart';
 import '../../../../../core/theming/app_styles.dart';
 import '../../../../../core/theming/font_weight_helper.dart';
 import '../../../../../core/utils/spacing.dart';
+import '../../../data/models/currencies_response_model.dart';
 import 'banks_buttons_and_icons_row.dart';
 import 'banks_prices_row.dart';
 
 class BanksContainerSingleItem extends StatelessWidget {
   final BanksResponseModel bank;
+  final CurrenciesPrice prices;
 
   const BanksContainerSingleItem({
     super.key,
-    required this.bank,
+    required this.bank, required this.prices,
   });
 
   @override
@@ -35,7 +37,7 @@ class BanksContainerSingleItem extends StatelessWidget {
           verticalSpace(8),
           bankNameText(),
           verticalSpace(8),
-          BanksPricesRow(),
+          BanksPricesRow(price: prices,),
         ],
       ),
     );

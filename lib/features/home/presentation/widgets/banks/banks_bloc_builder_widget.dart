@@ -1,3 +1,4 @@
+import 'package:black_market/features/home/data/models/currencies_response_model.dart';
 import 'package:black_market/features/home/presentation/widgets/banks/banks_container_single_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +11,9 @@ import '../../../logic/home_cubit.dart';
 import '../../../logic/home_state.dart';
 
 class BanksBlocBuilderWidget extends StatefulWidget {
-  const BanksBlocBuilderWidget({super.key});
+  final List<CurrenciesPrice> currenciesList;
+
+  const BanksBlocBuilderWidget({super.key, required this.currenciesList});
 
   @override
   State<BanksBlocBuilderWidget> createState() => _BanksBlocBuilderWidgetState();
@@ -60,11 +63,21 @@ class _BanksBlocBuilderWidgetState extends State<BanksBlocBuilderWidget> {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
-        final banks = banksList ?? [];
-        return banksList.isEmpty
+        if (banksList.isEmpty) {
+          return Center(
+            child: CircularProgressIndicator(color: AppColors.primaryColor),
+          );
+        }
+        final filteredBanks = banksList.where((bank) {
+          return widget.currenciesList.any((price) => price.bankId == bank.id);
+        }).toList();
+
+        // final banks = banksList ?? [];
+        return filteredBanks.isEmpty
             ? Center(
-                child: CircularProgressIndicator(
-                  color: AppColors.primaryColor,
+                child: Text(
+                  "لا توجد بنوك متاحة",
+                  style: TextStyle(color: Colors.white),
                 ),
               )
             : GridView.builder(
@@ -76,11 +89,16 @@ class _BanksBlocBuilderWidgetState extends State<BanksBlocBuilderWidget> {
                 ),
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: banks.length,
+                itemCount: filteredBanks.length,
                 itemBuilder: (context, index) {
-                  final bank = banks[index];
+                  final bank = filteredBanks[index];
+                  final price = widget.currenciesList.firstWhere(
+                    (p) => p.bankId == bank.id,
+                    orElse: () => widget.currenciesList.first,
+                  );
                   return BanksContainerSingleItem(
                     bank: bank,
+                    prices: price,
                   );
                 },
               );
