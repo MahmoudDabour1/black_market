@@ -30,10 +30,10 @@ class GoldSingleItem extends StatelessWidget {
           children: [
             verticalSpace(16),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 SizedBox(
-                  width: 46.w,
+                  width: 30.w,
                   height: 30.h,
                 ),
                 CachedNetworkImage(
@@ -76,6 +76,8 @@ class GoldSingleItem extends StatelessWidget {
               style: AppStyles.font18PrimaryMedium.copyWith(
                 color: AppColors.whiteColor,
               ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
             verticalSpace(8.h),
             GoldPriceRow(

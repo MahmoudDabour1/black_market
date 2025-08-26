@@ -18,7 +18,7 @@ class AppString {
   static const conPassword = "تأكيد كلمة المرور";
   static const forPassword = "إسترجاع كلمة المرور";
   static const send =
-      "سنرسل رمز OTP إلى بريدك الإلكتروني للأمان عند\n نسيان كلمة المرور الخاصة بك";
+      "سنرسل رمز OTP إلى بريدك الإلكتروني للأمان عند نسيان كلمة المرور الخاصة بك";
   static const con = "متابعة";
   static const makeNewPassword = "إنشاء كلمة المرور الجديدة";
   static const makeNewPasswordSuccess = "تم إنشاء كلمة مرور جديدة بنجاح";
@@ -75,4 +75,5 @@ class AppString {
   static const min = "دقيقة";
   static const averagePrice = "متوسط السعر";
   static const egp = "ج.م";
+  static const thisPage = "هذه الصفحة متاحة للمستخدمين المجلين فقط";
 }

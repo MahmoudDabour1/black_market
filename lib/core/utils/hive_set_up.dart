@@ -5,6 +5,7 @@ import 'package:black_market/features/profile/data/models/about_app_response_mod
 import 'package:black_market/features/profile/data/models/countries_response_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import '../../features/favorites/data/models/favorite_bank_model.dart';
 import '../../features/home/data/models/currencies_response_model.dart';
 
 Future<void> initHive() async {
@@ -14,6 +15,7 @@ Future<void> initHive() async {
   await Hive.openBox<LoginResponseModel>(kUserBox);
   await Hive.openBox<AboutAppResponseModel>(kAboutAppBox);
   await Hive.openBox<List>(kBanksBox);
+  await Hive.openBox<FavoriteBankModel>(kFavBox);
 }
 
 void _registerHiveAdapters() {
@@ -46,5 +48,8 @@ void _registerHiveAdapters() {
   }
   if (!Hive.isAdapterRegistered(9)) {
     Hive.registerAdapter(CurrenciesPriceAdapter());
+  }
+  if (!Hive.isAdapterRegistered(10)) {
+    Hive.registerAdapter(FavoriteBankModelAdapter());
   }
 }

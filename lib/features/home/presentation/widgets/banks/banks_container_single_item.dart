@@ -13,11 +13,13 @@ import 'banks_prices_row.dart';
 class BanksContainerSingleItem extends StatelessWidget {
   final BanksResponseModel bank;
   final CurrenciesPrice prices;
+  final VoidCallback? onFavoriteChanged;
 
   const BanksContainerSingleItem({
     super.key,
     required this.bank,
     required this.prices,
+    this.onFavoriteChanged,
   });
 
   @override
@@ -34,7 +36,11 @@ class BanksContainerSingleItem extends StatelessWidget {
       child: Column(
         children: [
           verticalSpace(16),
-          BanksButtonsAndIconsRow(bank: bank),
+          BanksButtonsAndIconsRow(
+            bank: bank,
+            price: prices,
+            onFavoriteChanged: onFavoriteChanged,
+          ),
           verticalSpace(8),
           bankNameText(),
           verticalSpace(8),

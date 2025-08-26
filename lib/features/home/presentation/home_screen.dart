@@ -75,24 +75,30 @@ class _HomeScreenState extends State<HomeScreen>
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: MediaQuery.sizeOf(context).height * 0.281.h,
+                height: MediaQuery.sizeOf(context).height * 0.32.h,
                 child: Stack(
                   children: [
                     HomeHeaderContainerWidget(),
-                    currencies.isEmpty || selectedCurrency == null
-                        ? Center(child: CircularProgressIndicator())
-                        : HomeCurrenciesDropDownMenu(
-                            currencies: currencies,
-                            selectedCurrency: selectedCurrency!,
-                            onCurrencyChanged: (currency) {
-                              setState(() {
-                                selectedCurrency = currency;
-                              });
-                            },
-                          ),
+                    Positioned(
+                      bottom: MediaQuery.sizeOf(context).height * 0.001.h,
+                      left: 8.w,
+                      right: 8.w,
+                      child: currencies.isEmpty || selectedCurrency == null
+                          ? Center(child: CircularProgressIndicator())
+                          : HomeCurrenciesDropDownMenu(
+                              currencies: currencies,
+                              selectedCurrency: selectedCurrency!,
+                              onCurrencyChanged: (currency) {
+                                setState(() {
+                                  selectedCurrency = currency;
+                                });
+                              },
+                            ),
+                    ),
                   ],
                 ),
               ),
+              verticalSpace(8),
               HomeBankAndBlackMarketToggle(
                 isBankSelected: isBankSelected,
                 onToggle: (value) {

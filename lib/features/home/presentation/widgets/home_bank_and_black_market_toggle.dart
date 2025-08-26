@@ -8,77 +8,65 @@ import '../../../../core/utils/spacing.dart';
 class HomeBankAndBlackMarketToggle extends StatelessWidget {
   final bool isBankSelected;
   final ValueChanged<bool> onToggle;
-  const HomeBankAndBlackMarketToggle(
-      {super.key, required this.isBankSelected, required this.onToggle});
+
+  const HomeBankAndBlackMarketToggle({
+    super.key,
+    required this.isBankSelected,
+    required this.onToggle,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
         height: 40.h,
-        width: MediaQuery.sizeOf(context).width - 80,
+        width: MediaQuery.sizeOf(context).width - 80.w,
         decoration: BoxDecoration(
           color: AppColors.primaryColor,
           borderRadius: BorderRadius.circular(16.r),
         ),
         padding: EdgeInsets.all(4.w),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(
-              child: GestureDetector(
-                onTap: () => onToggle(false),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: !isBankSelected
-                        ? AppColors.blackColor
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(12.r),
-                  ),
-                  child: Center(
-                    child: Expanded(
-                      child: Text(
-                        AppString.souqSouda,
-                        style: TextStyle(
-                          color: !isBankSelected
-                              ? AppColors.primaryColor
-                              : AppColors.blackColor,
-                          fontSize: 16.sp,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+            _buildToggleButton(
+              title: AppString.souqSouda,
+              isSelected: !isBankSelected,
+              onTap: () => onToggle(false),
             ),
             horizontalSpace(8),
-            Expanded(
-              child: GestureDetector(
-                onTap: () => onToggle(true),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: isBankSelected
-                        ? AppColors.blackColor
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(12.r),
-                  ),
-                  child: Center(
-                    child: Expanded(
-                      child: Text(
-                        AppString.bankPrice,
-                        style: TextStyle(
-                          color: isBankSelected
-                              ? AppColors.primaryColor
-                              : AppColors.blackColor,
-                          fontSize: 16.sp,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+            _buildToggleButton(
+              title: AppString.bankPrice,
+              isSelected: isBankSelected,
+              onTap: () => onToggle(true),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildToggleButton({
+    required String title,
+    required bool isSelected,
+    required VoidCallback onTap,
+  }) {
+    return Expanded(
+      child: GestureDetector(
+        onTap: onTap,
+        child: Container(
+          decoration: BoxDecoration(
+            color: isSelected ? AppColors.blackColor : Colors.transparent,
+            borderRadius: BorderRadius.circular(12.r),
+          ),
+          alignment: Alignment.center,
+          child: Text(
+            title,
+            style: TextStyle(
+              color: isSelected ? AppColors.primaryColor : AppColors.blackColor,
+              fontSize: 16.sp,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
         ),
       ),
     );

@@ -29,9 +29,6 @@ class _ProfileLogoutButtonWidgetState extends State<ProfileLogoutButtonWidget> {
       onPressed: () async {
         showModalBottomSheet(
           context: context,
-          constraints: BoxConstraints(
-            maxHeight: MediaQuery.of(context).size.height * 0.4,
-          ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(16.r),
