@@ -9,7 +9,9 @@ import '../../../../core/utils/spacing.dart';
 import '../../../../core/widgets/app_custom_button.dart';
 
 class ProfileAuthButtons extends StatelessWidget {
-  const ProfileAuthButtons({super.key});
+  final Color? signInColor;
+
+  const ProfileAuthButtons({super.key, this.signInColor});
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +36,11 @@ class ProfileAuthButtons extends StatelessWidget {
               onPressed: () {
                 context.pushNamed(Routes.registerScreen);
               },
-              backgroundColor: AppColors.fillColor,
+              backgroundColor: signInColor ?? AppColors.fillColor,
               radius: 16.r,
-              textColor: AppColors.primaryColor,
+              textColor: signInColor == null
+                  ? AppColors.primaryColor
+                  : AppColors.blackColor,
             ),
           ),
         ],

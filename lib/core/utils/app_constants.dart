@@ -8,3 +8,5 @@ const String kBanksData = 'BanksData';
 const String kBanksBox = 'BanksBox';
 const String kCurrenciesBox = 'CurrenciesBox';
 const String kCurrenciesData = 'CurrenciesData';
+const String kFavData = 'kFavData';
+const String kFavBox = 'kFavBox';

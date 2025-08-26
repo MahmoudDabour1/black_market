@@ -28,11 +28,13 @@ class ForgetPasswordNoteContainer extends StatelessWidget {
               width: 30.w,
             ),
           ),
-          Text(
-            AppString.send,
-            style: AppStyles.font14WhiteMedium,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
+          Flexible(
+            child: Text(
+              AppString.send,
+              style: AppStyles.font14WhiteMedium,
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
         ],
       ),

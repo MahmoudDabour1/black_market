@@ -75,38 +75,40 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 8.w),
-        child: Column(
-          children: [
-            verticalSpace(32),
-            if (isLogin == true) ...[
-              ProfileUserDataWidget(
-                userData: userData,
-              ),
-            ] else ...[
-              ProfileAuthButtons(),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              verticalSpace(32),
+              if (isLogin == true) ...[
+                ProfileUserDataWidget(
+                  userData: userData,
+                ),
+              ] else ...[
+                ProfileAuthButtons(),
+              ],
+              ProfileContainerItemsListWidget(),
+              if (isLogin) ...[
+                ProfileLogoutButtonWidget(
+                  onPress: () async {
+                    var authBox = Hive.box<LoginResponseModel>(kUserBox);
+                    await authBox.clear();
+                    await SharedPrefHelper.removeData(SharedPrefKeys.userToken);
+                    await SharedPrefHelper.removeSecuredString(
+                        SharedPrefKeys.userToken);
+
+                    setState(() {
+                      isLogin = false;
+                      userData = null;
+                    });
+
+                    if (mounted) {
+                      context.pushNamed(Routes.loginScreen);
+                    }
+                  },
+                ),
+              ]
             ],
-            ProfileContainerItemsListWidget(),
-            if (isLogin) ...[
-              ProfileLogoutButtonWidget(
-                onPress: () async {
-                  var authBox = Hive.box<LoginResponseModel>(kUserBox);
-                  await authBox.clear();
-                  await SharedPrefHelper.removeData(SharedPrefKeys.userToken);
-                  await SharedPrefHelper.removeSecuredString(
-                      SharedPrefKeys.userToken);
-
-                  setState(() {
-                    isLogin = false;
-                    userData = null;
-                  });
-
-                  if (mounted) {
-                    context.pushNamed(Routes.loginScreen);
-                  }
-                },
-              ),
-            ]
-          ],
+          ),
         ),
       ),
     );

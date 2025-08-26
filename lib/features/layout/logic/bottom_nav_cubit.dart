@@ -6,6 +6,7 @@ import 'package:black_market/features/profile/presentation/profile_screen.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 
+import '../../favorites/presentation/favorites_screen.dart';
 import 'bottom_nav_state.dart';
 
 class BottomNavCubit extends Cubit<BottomNavState> {
@@ -21,14 +22,14 @@ class BottomNavCubit extends Cubit<BottomNavState> {
   List<Widget> bottomNavScreens = [
     HomeScreen(),
     GoldScreen(),
-    const Scaffold(),
+    FavoritesScreen(),
     ProfileScreen(),
   ];
 
   List<String> labels = [
     AppString.coins,
     AppString.gold,
-    AppString.news,
+    AppString.fav,
     AppString.profile,
   ];
   List<String> selectedIcons = [

@@ -34,16 +34,18 @@ class ProfileContainerItem extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 30.w),
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Image.asset(
                   icon,
                   fit: BoxFit.contain,
                   width: 25.h,
                 ),
-                horizontalSpace(32),
+                horizontalSpace(16),
                 Text(
                   title,
-                  style: AppStyles.font18WhiteSemiBold,
+                  style: AppStyles.font16whiteMedium,
+                  maxLines: 1,
                 ),
                 Spacer(),
                 Image.asset(

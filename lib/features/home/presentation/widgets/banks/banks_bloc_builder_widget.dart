@@ -72,7 +72,6 @@ class _BanksBlocBuilderWidgetState extends State<BanksBlocBuilderWidget> {
           return widget.currenciesList.any((price) => price.bankId == bank.id);
         }).toList();
 
-        // final banks = banksList ?? [];
         return filteredBanks.isEmpty
             ? Center(
                 child: Text(

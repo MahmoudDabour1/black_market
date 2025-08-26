@@ -40,60 +40,55 @@ class _HomeCurrenciesDropDownMenuState
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      top: 165.h,
-      left: 10.w,
-      right: 10.w,
-      child: Container(
-        width: MediaQuery.sizeOf(context).width * 0.85,
-        height: 100.h,
-        decoration: BoxDecoration(
-          color: AppColors.whiteColor,
-          borderRadius: BorderRadius.circular(20.r),
-        ),
-        child: Column(
-          children: [
-            Center(
-                child: DropdownButtonFormField<int>(
-                    value: selectedCurrency?.id,
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                    style: AppStyles.font18PrimaryMedium,
-                    menuMaxHeight: MediaQuery.sizeOf(context).height * 0.75,
-                    borderRadius: BorderRadius.circular(25.r),
-                    dropdownColor: AppColors.fillColor,
-                    isDense: true,
-                    isExpanded: true,
-                    items: currencies.map((currency) {
-                      return DropdownMenuItem<int>(
-                        alignment: Alignment.centerLeft,
-                        value: currency.id,
-                        child: HomeBuildDropDownItem(
-                          currency: currency,
-                        ),
+    return Container(
+      width: MediaQuery.sizeOf(context).width * 0.85,
+      height: 100.h,
+      decoration: BoxDecoration(
+        color: AppColors.whiteColor,
+        borderRadius: BorderRadius.circular(20.r),
+      ),
+      child: Column(
+        children: [
+          Center(
+              child: DropdownButtonFormField<int>(
+                  value: selectedCurrency?.id,
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                  ),
+                  style: AppStyles.font18PrimaryMedium,
+                  menuMaxHeight: MediaQuery.sizeOf(context).height * 0.75,
+                  borderRadius: BorderRadius.circular(25.r),
+                  dropdownColor: AppColors.fillColor,
+                  isDense: true,
+                  isExpanded: true,
+                  items: currencies.map((currency) {
+                    return DropdownMenuItem<int>(
+                      alignment: Alignment.centerLeft,
+                      value: currency.id,
+                      child: HomeBuildDropDownItem(
+                        currency: currency,
+                      ),
+                    );
+                  }).toList(),
+                  onChanged: (value) {
+                    setState(() {
+                      selectedCurrency =
+                          currencies.firstWhere((c) => c.id == value);
+                    });
+                    widget.onCurrencyChanged(selectedCurrency!);
+                  },
+                  selectedItemBuilder: (context) {
+                    return currencies.map((currency) {
+                      return HomeDropDownItemBuilder(
+                        currency: currency,
                       );
-                    }).toList(),
-                    onChanged: (value) {
-                      setState(() {
-                        selectedCurrency =
-                            currencies.firstWhere((c) => c.id == value);
-                      });
-                      widget.onCurrencyChanged(selectedCurrency!);
-                    },
-                    selectedItemBuilder: (context) {
-                      return currencies.map((currency) {
-                        return HomeDropDownItemBuilder(
-                          currency: currency,
-                        );
-                      }).toList();
-                    })),
-            verticalSpace(8),
-            HomeDropDownContainerPrices(
-              selectedCurrency: selectedCurrency!,
-            ),
-          ],
-        ),
+                    }).toList();
+                  })),
+          verticalSpace(8),
+          HomeDropDownContainerPrices(
+            selectedCurrency: selectedCurrency!,
+          ),
+        ],
       ),
     );
   }
